@@ -41,11 +41,23 @@ app.get("/files", (req, res) => {
   }
 });
 
-app.get("/file/:name", (req, res) => {
-  const fileName = req.params.name;
-  const filePath = path.resolve(BASE_DIR, fileName);
-  if (!filePath.startsWith(BASE_DIR) || !fs.existsSync(filePath)) return res.status(404).json({ error: "File not found" });
-  res.download(filePath, fileName);
+//app.get("/file/:name", (req, res) => {
+//  const fileName = req.params.name;
+//  const filePath = path.resolve(BASE_DIR, fileName);
+//  if (!filePath.startsWith(BASE_DIR) || !fs.existsSync(filePath)) return res.status(404).json({ error: "File not found" });
+//  res.download(filePath, fileName);
+//});
+
+app.get("/file", (req, res) => {
+  const relPath = req.query.path || "";
+  const filePath = path.resolve(BASE_DIR, relPath);
+
+  if (!filePath.startsWith(BASE_DIR) || !fs.existsSync(filePath)) {
+    return res.status(404).send("File not found");
+  }
+
+  console.log("Serving file:", filePath);
+  res.sendFile(filePath);
 });
 
 app.listen(PORT, () => {
