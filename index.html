@@ -3,11 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>ChordPro Viewer</title>
-  <meta name="theme-color" content="#222222">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="manifest" href="manifest.json">
   <style>
     body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
     #output {
@@ -223,7 +218,7 @@
     }
 
     async function loadDirectory(path = "") {
-      const res = await fetch(`/files?path=${encodeURIComponent(path)}`);
+      const res = await fetch(`/https://chordpro-viewer.onrender.com/files?path=${encodeURIComponent(path)}`);
       const data = await res.json();
       const fileList = document.getElementById("fileList");
       fileList.innerHTML = "";
@@ -251,7 +246,7 @@
     }
 
     async function loadFile(path) {
-      const res = await fetch(`/file?path=${encodeURIComponent(path)}`);
+      const res = await fetch(`https://chordpro-viewer.onrender.com/file?path=${encodeURIComponent(path)}`);
       chordProText = await res.text();
       file = { name: path };
       render();
