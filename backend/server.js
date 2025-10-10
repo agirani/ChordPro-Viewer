@@ -1,3 +1,6 @@
+app.get("/", (req, res) => {
+  res.send("ChordPro Viewer backend is running ✅");
+});
 import express from "express";
 import fs from "fs";
 import path from "path";
