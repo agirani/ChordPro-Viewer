@@ -223,7 +223,7 @@
     }
 
     async function loadDirectory(path = "") {
-      const res = await fetch(`/https://chordpro-viewer-backend.onrender.com/files?path=${encodeURIComponent(path)}`);
+      const res = await fetch(`/https://chordpro-viewer.onrender.com/files?path=${encodeURIComponent(path)}`);
       const data = await res.json();
       const fileList = document.getElementById("fileList");
       fileList.innerHTML = "";
@@ -251,7 +251,7 @@
     }
 
     async function loadFile(path) {
-      const res = await fetch(`https://chordpro-viewer-backend.onrender.com/file?path=${encodeURIComponent(path)}`);
+      const res = await fetch(`https://chordpro-viewer.onrender.com/file?path=${encodeURIComponent(path)}`);
       chordProText = await res.text();
       file = { name: path };
       render();

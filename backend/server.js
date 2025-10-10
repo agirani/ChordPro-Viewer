@@ -26,7 +26,7 @@ app.get("/files", (req, res) => {
   console.log("GET /files request received");
   const relPath = req.query.path || "";
   const fullPath = path.join(BASE_DIR, relPath);
-  console.log('Resolved path: ${fullPath}');
+  console.log("Resolved path:", fullPath);
 
   if (!fs.existsSync(fullPath) || !fs.statSync(fullPath).isDirectory()) {
     return res.status(400).json({ error: "Not a directory" });
