@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ChordPro Viewer</title>
+  <meta name="theme-color" content="#222222">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
+    #output {
+      font-family: monospace;
+      margin-top: 5px;
+      column-gap: 10px;
+    }
+
+    .file-btn {
+      font-size: 15px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .file-btn:hover { background: #0d47a1; }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;	.chord-sheet-table td {
+	   padding: 0;                /* remove inner padding */
+	   margin: 0;                 /* not usually applied to td, but safe */
+	   white-space: nowrap;   	/* prevent line breaks inside cells */
+       text-overflow: ellipsis; /* optional: show "..." if clipped */
+	   overflow: hidden;      /* optional: hide overflow if too long */	}
+
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover { color: black; }
+
+    #fileList {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    #fileList li {
+      padding: 6px 8px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    #fileList li:hover {
+      background: #e3f2fd;
+    }
+
+    input[type="range"], input[type="number"] {
+      vertical-align: middle;
+    }
+    h1, h2 { margin: 0; font_size: 15px;}
+	.title, .song-title {
+		column-span: all;
+  		font-size: 15px;       /* Smaller than typical headline */
+  		font-weight: bold;
+  		margin-bottom: 5px;
+  		text-align: center;
+	}
+
+	.subtitle, .song-title {
+		column-span: all;
+  		font-size: 12px;       /* Smaller subtitle */
+  		font-style: italic;
+  		margin-bottom: 5px;
+  		text-align: center;
+  		color: #555;
+	}
+    .chord-sheet {
+      /* column-count: 3; / * Change to 2, 3 or more for more columns */
+      column-gap: 10px;
+      font-family: Courier New; 
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 5px;
+   	  border-right: 2px solid #ccc; /* light gray divider */
+      border-radius: 8px;
+      margin: auto;
+    }
+	.chord-sheet-table td {
+	   padding: 0;                /* remove inner padding */
+	   margin: 0;                 /* not usually applied to td, but safe */
+	   white-space: nowrap;   	/* prevent line breaks inside cells */
+       text-overflow: ellipsis; /* optional: show "..." if clipped */
+	   overflow: hidden;      /* optional: hide overflow if too long */	
+	}
+    .chord {
+      color: #d32f2f; /* red for chords */
+      font-weight: bold;
+      margin-right: 5px;
+  	  line-height: .5;
+    }
+    .comment {
+      color: #0000ff; /* blue for comments */
+      /* font-weight: bold; */
+      margin-right: 5px;
+  	  line-height: .5;
+    }
+
+    .lyrics {
+      color: #000; /* black for lyrics */
+	  font-weight: bold;
+	  line-height: 1.0;
+    }
+	.paragraph {
+		margin-bottom: 20px; /* Adds space below the div */
+	}
+    .line {
+      margin-bottom: 4px;
+    }
+	.line:empty {
+  		margin-bottom: 20px; /* Adjust spacing for blank lines */
+	}
+	br {
+  		line-height: 20em; /* Increase spacing between lines */
+	}
+	.blank-line {
+  		height: 40px; /* Adjust this to control spacing */
+	}
+  </style>
+  <script src="bundle.js"></script>
+</head>
+<body>
+  <button class="file-btn" onclick="openFileBrowser()">Select File</button>
+  <label>Transpose</label>
+  <input type="range" id="transposeSlider" min="-6" max="6" value="0">
+  <span id="transposeValue">0</span>
+  <label>Font size:</label>
+  <input type="range" min="8" max="36" value="12" id="fontSlider">
+  <span id="sizeValue">12</span>
+  <label>Columns:</label>
+  <input type="number" id="columnCount" min="1" max="4" value="1">
+  <button onclick="renderToNewTab()">Open in New Tab</button>
+
+  <div id="output"></div>
+
+  <!-- Modal for Server File Browser -->
+  <div id="fileModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Select a File</h3>
+      <input type="text" id="searchBox" placeholder="Search..." oninput="filterList()" style="width:100%; padding:6px;">
+      <ul id="fileList"></ul>
+    </div>
+  </div>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js").then(() => console.log("SW registered"));
+    }
+
+    let chordProText = "";
+    let file = "";
+    let colcount = 1;
+    let fontsize = 12;
+    let currentPath = "";
+
+    const fontSlider = document.getElementById("fontSlider");
+    fontSlider.addEventListener("input", () => {
+      fontsize = fontSlider.value;
+      document.getElementById("output").style.fontSize = fontsize + "px";
+      document.getElementById("sizeValue").textContent = fontsize;
+    });
+
+    document.getElementById("columnCount").addEventListener("change", (e) => {
+      colcount = parseInt(e.target.value, 10) || 1;
+      document.getElementById("output").style.columnCount = colcount;
+    });
+
+    const slider = document.getElementById("transposeSlider");
+    const valueDisplay = document.getElementById("transposeValue");
+    slider.addEventListener("input", () => {
+      valueDisplay.textContent = slider.value;
+      render();
+    });
+
+    async function render() {
+      const delta = slider.value;
+      const parser = new ChordSheetJS.ChordProParser();
+      let song = parser.parse(chordProText);
+      if (delta != 0) song = song.transpose(delta);
+      const formatter = new ChordSheetJS.HtmlTableFormatter();
+      document.getElementById("output").innerHTML = formatter.format(song);
+    }
+
+    async function loadDirectory(path = "") {
+      const res = await fetch(`/files?path=${encodeURIComponent(path)}`);
+      const data = await res.json();
+      const fileList = document.getElementById("fileList");
+      fileList.innerHTML = "";
+      currentPath = path;
+
+      if (path) {
+        const upPath = path.split("/").slice(0, -1).join("/");
+        const up = document.createElement("li");
+        up.textContent = "⬆️ Up";
+        up.onclick = () => loadDirectory(upPath);
+        fileList.appendChild(up);
+      }
+
+      data.sort((a, b) => (b.is_dir - a.is_dir) || a.name.localeCompare(b.name));
+
+      data.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = (item.is_dir ? "📁 " : "🎵 ") + item.name;
+        li.onclick = () => {
+          if (item.is_dir) loadDirectory(item.path);
+          else loadFile(item.path);
+        };
+        fileList.appendChild(li);
+      });
+    }
+
+    async function loadFile(path) {
+      const res = await fetch(`/file?path=${encodeURIComponent(path)}`);
+      chordProText = await res.text();
+      file = { name: path };
+      render();
+      closeModal();
+    }
+
+    function filterList() {
+      const query = document.getElementById("searchBox").value.toLowerCase();
+      document.querySelectorAll("#fileList li").forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(query) ? "" : "none";
+      });
+    }
+
+    function openFileBrowser() {
+      document.getElementById("fileModal").style.display = "block";
+      loadDirectory();
+    }
+
+    function closeModal() {
+      document.getElementById("fileModal").style.display = "none";
+    }
+
+    function renderToNewTab() {
+      if (!file) return;
+      const delta = slider.value;
+      const parser = new ChordSheetJS.ChordProParser();
+      let song = parser.parse(chordProText);
+      if (delta != 0) song = song.transpose(delta);
+      const formatter = new ChordSheetJS.HtmlTableFormatter();
+      const rendered = formatter.format(song);
+      const newWin = window.open("", "_blank");
+      newWin.document.write(`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>${file.name}</title>
+			  <style>
+			    body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
+			    #output {
+			      font-family: monospace;
+			      margin-top: 5px;
+			      column-gap: 10px;
+			    }
+			
+			    .file-btn {
+			      font-size: 15px;
+			      padding: 8px 16px;
+			      border-radius: 8px;
+			      background: #1976d2;
+			      color: white;
+			      border: none;
+			      cursor: pointer;
+			    }
+			    .file-btn:hover { background: #0d47a1; }
+			
+			    /* Modal Styling */
+			    .modal {
+			      display: none;
+			      position: fixed;
+			      z-index: 10;	.chord-sheet-table td {
+				   padding: 0;                /* remove inner padding */
+				   margin: 0;                 /* not usually applied to td, but safe */
+				   white-space: nowrap;   	/* prevent line breaks inside cells */
+			       text-overflow: ellipsis; /* optional: show "..." if clipped */
+				   overflow: hidden;      /* optional: hide overflow if too long */	}
+			
+			      left: 0;
+			      top: 0;
+			      width: 100%;
+			      height: 100%;
+			      overflow: auto;
+			      background-color: rgba(0,0,0,0.4);
+			    }
+			
+			    .modal-content {
+			      background-color: #fff;
+			      margin: 5% auto;
+			      padding: 20px;
+			      border: 1px solid #888;
+			      width: 80%;
+			      max-width: 600px;
+			      border-radius: 10px;
+			    }
+			
+			    .close {
+			      color: #aaa;
+			      float: right;
+			      font-size: 28px;
+			      font-weight: bold;
+			      cursor: pointer;
+			    }
+			    .close:hover { color: black; }
+			
+			    #fileList {
+			      list-style: none;
+			      padding: 0;
+			      margin-top: 10px;
+			      max-height: 300px;
+			      overflow-y: auto;
+			      border: 1px solid #ddd;
+			      border-radius: 6px;
+			    }
+			
+			    #fileList li {
+			      padding: 6px 8px;
+			      border-bottom: 1px solid #eee;
+			      cursor: pointer;
+			    }
+			
+			    #fileList li:hover {
+			      background: #e3f2fd;
+			    }
+			
+			    input[type="range"], input[type="number"] {
+			      vertical-align: middle;
+			    }
+			    h1, h2 { margin: 0; font_size: 15px;}
+				.title, .song-title {
+					column-span: all;
+			  		font-size: 15px;       /* Smaller than typical headline */
+			  		font-weight: bold;
+			  		margin-bottom: 5px;
+			  		text-align: center;
+				}
+			
+				.subtitle, .song-title {
+					column-span: all;
+			  		font-size: 12px;       /* Smaller subtitle */
+			  		font-style: italic;
+			  		margin-bottom: 5px;
+			  		text-align: center;
+			  		color: #555;
+				}
+			    .chord-sheet {
+			      /* column-count: 3; / * Change to 2, 3 or more for more columns */
+			      column-gap: 10px;
+			      font-family: Courier New; 
+			      color: #333;
+			      background-color: #f9f9f9;
+			      padding: 5px;
+			   	  border-right: 2px solid #ccc; /* light gray divider */
+			      border-radius: 8px;
+			      margin: auto;
+			    }
+				.chord-sheet-table td {
+				   padding: 0;                /* remove inner padding */
+				   margin: 0;                 /* not usually applied to td, but safe */
+				   white-space: nowrap;   	/* prevent line breaks inside cells */
+			       text-overflow: ellipsis; /* optional: show "..." if clipped */
+				   overflow: hidden;      /* optional: hide overflow if too long */	
+				}
+			    .chord {
+			      color: #d32f2f; /* red for chords */
+			      font-weight: bold;
+			      margin-right: 5px;
+			  	  line-height: .5;
+			    }
+			    .comment {
+			      color: #0000ff; /* blue for comments */
+			      /* font-weight: bold; */
+			      margin-right: 5px;
+			  	  line-height: .5;
+			    }
+			
+			    .lyrics {
+			      color: #000; /* black for lyrics */
+				  font-weight: bold;
+				  line-height: 1.0;
+			    }
+				.paragraph {
+					margin-bottom: 20px; /* Adds space below the div */
+				}
+			    .line {
+			      margin-bottom: 4px;
+			    }
+				.line:empty {
+			  		margin-bottom: 20px; /* Adjust spacing for blank lines */
+				}
+				br {
+			  		line-height: 20em; /* Increase spacing between lines */
+				}
+				.blank-line {
+			  		height: 40px; /* Adjust this to control spacing */
+				}
+			  </style>
+          </head>
+          <body style="font-family:monospace; font-size:${fontsize}px;">
+          <div style="column-count:${colcount};">${rendered}</div>
+          </body>
+        </html>
+      `);
+      newWin.document.close();
+    }
+
+    window.addEventListener("click", (e) => {
+      const modal = document.getElementById("fileModal");
+      if (e.target == modal) closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ChordPro Viewer</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#222222">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <style>
+    body { font-family: sans-serif; padding: 5px; background: #f9f9f9; }
+    #output { font-family: monospace; margin-top: 5px; column-gap: 10px; }
+    h1, h2 { margin: 0; font-size: 15px; }
+
+    .title { font-size: 15px; font-weight: bold; margin-bottom: 5px; text-align: center; }
+    .subtitle { font-size: 12px; font-style: italic; margin-bottom: 5px; text-align: center; color: #555; }
+
+    .chord-sheet {
+      column-gap: 10px;
+      font-family: Courier New;
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 5px;
+      border-right: 2px solid #ccc;
+      border-radius: 8px;
+      margin: auto;
+    }
+    .chord-sheet-table td {
+      padding: 0;
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .chord { color: #d32f2f; font-weight: bold; margin-right: 5px; line-height: .5; }
+    .comment { color: #0000ff; margin-right: 5px; line-height: .5; }
+    .lyrics { color: #000; font-weight: bold; line-height: 1.0; }
+    .paragraph { margin-bottom: 20px; }
+    .line { margin-bottom: 4px; }
+
+    .file-input { font-size: 14px; width: 500px; padding: 6px 10px; }
+    #fileList { list-style: none; padding: 0; max-height: 300px; overflow: auto; margin: 5px 0; }
+    #fileList li { margin: 2px 0; }
+    #fileList a { text-decoration: none; color: #0077cc; }
+    #fileList a:hover { text-decoration: underline; }
+  </style>
+
+  <script src="bundle.js"></script>
+</head>
+
+<body>
+  <h2>ChordPro Viewer 🎸</h2>
+
+  <!-- Server-side file browser -->
+  <div>
+    <input type="text" id="searchBox" placeholder="Search..." oninput="filterList()">
+    <button onclick="loadDirectory()">Refresh</button>
+  </div>
+  <ul id="fileList"></ul>
+
+  <!-- Viewer controls -->
+  <div>
+    <label>Transpose </label>
+    <input type="range" id="transposeSlider" min="-6" max="6" value="0">
+    <span id="transposeValue">0</span>
+
+    <label>Font size: </label>
+    <input type="range" min="8" max="36" value="12" id="fontSlider">
+    <span id="sizeValue">12</span>
+
+    <label>Columns: </label>
+    <input type="number" id="columnCount" min="1" max="4" value="1">
+
+    <button onclick="renderToNewTab()">Move Song to new tab</button>
+  </div>
+
+  <div id="output"></div>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker registered"));
+    }
+
+    let chordProText = "";
+    let file = "";
+    let colcount = 1;
+    let fontsize = 12;
+    let currentPath = "";
+
+    const fontSlider = document.getElementById("fontSlider");
+    fontSlider.addEventListener("input", e => {
+      fontsize = fontSlider.value;
+      document.getElementById("output").style.fontSize = fontsize + "px";
+      document.getElementById("sizeValue").textContent = fontsize;
+    });
+
+    document.getElementById("columnCount").addEventListener("change", e => {
+      colcount = parseInt(e.target.value, 10) || 1;
+      document.getElementById("output").style.columnCount = colcount;
+    });
+
+    const slider = document.getElementById("transposeSlider");
+    const valueDisplay = document.getElementById("transposeValue");
+    slider.addEventListener("input", () => {
+      valueDisplay.textContent = slider.value;
+      render();
+    });
+
+    // ========== Directory browser logic ==========
+    async function loadDirectory(path = "") {
+      const res = await fetch(`/files?path=${encodeURIComponent(path)}`);
+      const data = await res.json();
+      if (data.error) {
+        alert(data.error);
+        return;
+      }
+      currentPath = path;
+      const fileList = document.getElementById("fileList");
+      fileList.innerHTML = "";
+
+      // Sort: directories first, then alphabetically
+      data.sort((a, b) => (b.is_dir - a.is_dir) || a.name.localeCompare(b.name));
+
+      // Up link
+      if (path) {
+        const upPath = path.split("/").slice(0, -1).join("/");
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="#" onclick="loadDirectory('${upPath}')">⬆️ Up</a>`;
+        fileList.appendChild(li);
+      }
+
+      for (const item of data) {
+        const li = document.createElement("li");
+        if (item.is_dir) {
+          li.innerHTML = `<a href="#" onclick="loadDirectory('${item.path}')">📁 ${item.name}</a>`;
+        } else {
+          li.innerHTML = `<a href="#" onclick="loadFile('${item.path}')">🎵 ${item.name}</a>`;
+        }
+        fileList.appendChild(li);
+      }
+    }
+
+    async function loadFile(path) {
+      const res = await fetch(`/file?path=${encodeURIComponent(path)}`);
+      const text = await res.text();
+      chordProText = text;
+      file = { name: path };
+      render();
+    }
+
+    function filterList() {
+      const query = document.getElementById("searchBox").value.toLowerCase();
+      document.querySelectorAll("#fileList li").forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(query) ? "" : "none";
+      });
+    }
+
+    window.addEventListener("load", () => loadDirectory());
+
+    // ========== Rendering logic ==========
+    function render() {
+      const delta = slider.value;
+      const parser = new ChordSheetJS.ChordProParser();
+      let song = parser.parse(chordProText);
+      if (delta !== 0) song = song.transpose(delta);
+
+      const formatter = new ChordSheetJS.HtmlTableFormatter();
+      const rendered = formatter.format(song);
+      document.getElementById("output").innerHTML = rendered;
+    }
+
+    function renderToNewTab() {
+      const tabdelta = slider.value;
+      if (!file) return;
+
+      const tabparser = new ChordSheetJS.ChordProParser();
+      let tabsong = tabparser.parse(chordProText);
+      if (tabdelta !== 0) tabsong = tabsong.transpose(tabdelta);
+
+      const tabformatter = new ChordSheetJS.HtmlTableFormatter();
+      const tabrendered = tabformatter.format(tabsong);
+
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write(`
+        <!DOCTYPE html>
+        <html><head><title>${file.name}</title>
+        <style>
+          body { font-family: sans-serif; padding: 5px; background: #f9f9f9; }
+          .chord-sheet { column-count: ${colcount}; font-family: Courier New; }
+          .chord { color: #d32f2f; font-weight: bold; }
+          .lyrics { color: #000; font-weight: bold; }
+        </style></head>
+        <body><div id="output" style="font-size:${fontsize}px;">${tabrendered}</div></body></html>
+      `);
+      newWindow.document.close();
+    }
+  </script>
+</body>
+</html>
