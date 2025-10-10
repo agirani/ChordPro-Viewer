@@ -13,15 +13,20 @@ app.get("/", (req, res) => {
 
 // ===== Configuration =====
 const BASE_DIR = path.join(__dirname, "songs"); // Directory of ChordPro files
-if (!fs.existsSync(BASE_DIR)) fs.mkdirSync(BASE_DIR);
-
+if (!fs.existsSync(BASE_DIR))  
+{
+  fs.mkdirSync(BASE_DIR, { recursive: true });
+  console.log("Created ${BASE_DIR} directory");
+}
 // ===== Serve static web files =====
 app.use(express.static(path.join(__dirname, "public")));
 
 // ===== Directory listing API =====
 app.get("/files", (req, res) => {
+  console.log("GET /files request received");
   const relPath = req.query.path || "";
   const fullPath = path.join(BASE_DIR, relPath);
+  console.log("Resolved path:", ${fullPath});
 
   if (!fs.existsSync(fullPath) || !fs.statSync(fullPath).isDirectory()) {
     return res.status(400).json({ error: "Not a directory" });
@@ -41,6 +46,7 @@ app.get("/files", (req, res) => {
 
 // ===== File retrieval API =====
 app.get("/file", (req, res) => {
+  console.log("GET /file request received");
   const relPath = req.query.path;
   if (!relPath) return res.status(400).json({ error: "Missing path" });
 
