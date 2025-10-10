@@ -1,0 +1,115 @@
+{title: When The Levee Breaks }
+{subtitle: Led Zeppelin 1970 (Kansas Joe McCoy & Memphis Minnie 1929)}
+
+
+Arguably, one of the finest recordings ever mixing the blues with heavy metal rock. 
+About the great Mississippi flood of 1927. Very hard to accurately duplicate because of the 
+heavy amount of studio recording, echo harmonica & special effects.
+
+https://en.wikipedia.org/wiki/When_the_Levee_Breaks
+
+E7* = G string 1st fret + A string 2nd fret (2 finger E7 chord)
+E7** = E chord + B string 3rd fret (4 finger E7 chord)
+E chord
+
+Repeatedly strum E7*/E/E7**/E7* Play around with different combinations for the best 
+effect, deemphasizing the high E string and emphasizing the low E string
+
+Capo I
+
+E7 * E E7 ** E7 * 18x
+
+C D
+
+E7 * \ E 4x
+
+C D
+
+E7 * \ E 4x
+
+      E7 *     E        E7 **            E
+If it keeps on raining, levee's goin' to break, 2x
+         E7 *  E           E7 **            E
+When the levee breaks I'll have no place to stay.
+
+E7* E E7** E7*  2x
+
+E7*      E                  E7**     E
+Mean old levee taught me to weep and moan, 2x
+E7*         E               E7**                   E
+Got what it takes to make a mountain man leave his home,
+E7* E     E7* E     E7* E
+Oh, well, oh, well, oh, well.
+
+C D
+
+E7 * \ E 4x
+
+C D
+
+E7 * \ E 4x
+
+E7* E  E7* B  E7* A D E
+
+E7*                    E
+Don't it make you feel bad
+            B
+When you're trying to find your way home,
+    A                D      E
+You don't know which way to go?
+          E7*        E
+If you're goin' down South
+     B
+They got no work to do,
+       A           D       E
+If you don't know about Chicago.
+
+E7* E  E7* B  E7* A D E 2x
+
+E7* E E7** E7*  14x
+
+C D
+
+E7 * \ E 4x
+
+C D
+
+E7 * \ E 4x
+
+E7*          E         E7**                    E
+Cryin' won't help you, praying won't do you no good,
+     E7*          E         E7**                    E
+Now, cryin' won't help you, praying won't do you no good,
+         E7*   E       E7**             E
+When the levee breaks, mama, you got to move.
+
+E7* E E7** E7* 2x
+
+E7*      E     E7**                 E
+All last night sat on the levee and moaned, 2x
+          E7*     E    E7**         E
+Thinking about me baby and my happy home.
+
+C D
+
+E7 * \ E 4x
+
+C D
+
+E7 * \ E 4x
+
+E7* E  E7* B  E7* A D E 2x
+
+E7* E  E7* B  E7* A  D E 2x
+Ah  ha ah  ha ah  ha ha ha
+
+E7* E  E7* B  E7* A D E
+
+E7* E E7** E7* 2x
+
+Going, going to Chicago... Going to Chicago... sorry but I can't take you...
+
+E7*   E       E7**  E7*  E
+Going down... going down now... going down....
+
+Set8

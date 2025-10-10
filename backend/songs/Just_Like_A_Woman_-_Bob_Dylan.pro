@@ -1,0 +1,51 @@
+{title: Just Like A Woman}
+{st:Bob Dylan}
+
+No[F]body [Bb]feels [C7]any pa[F]in
+Tonight as I s[Bb]tand [C7]inside the rai[F]n
+[Bb]Everybody k[C7]nows
+[B7]That Baby's got new c[C7]lothes
+But la[Bb]te-[Am]ly     [Gm]I   s[F]ee her [C7]ribbons and her bows
+Have f[Dm]allen fr[F]om [Bb]her c[C11]urls    [C7]      [C9]      [C7]  
+
+{soc}
+[C7]She ta[F]kes j[Am]ust l[Gm]ike [F]a [Bb]woman, yes, she does
+She ma[F]kes love j[Am]ust l[Gm]ike [F]a [Bb]woman, yes, she does
+And she ac[F]hes j[Am]ust l[Gm]ike [F]a [B]woman
+But she [C11]breaks [C7]just like a [C9]little [C7]    [F]girl.
+{eoc}
+
+Queen Mary, she's my friend.
+Yes I believe I'll go see her again.
+Noboby has to guess,
+That baby can't be blessed,
+'Till she finally sees that she's like all the rest.
+With her fog,
+Her amphetamines
+And her pearls
+
+{c:Chorus}
+
+{c: B part verse}
+It was [A7]raining from the first
+And I was dying of thirst
+So I [F]came in here
+And you [A7]long time curse hurts
+But whats worse is this [Bb]pain in here
+[C11] I can't [C7]stay in her[C9]e[C6]
+[C11]Ain't it [C7]  cle[C9]ar [C7]that 
+
+{c: chorus}
+
+I just can't fit.
+Yes I believe it's time for us to quit.
+And when we meet again,
+Introduced as friends,
+Please don't let on that you knew me when,
+I was hungry,
+And it was your world then.
+
+
+{tag: Oldies}
+{tag: Folk-rock}
+{tag: 1960s}

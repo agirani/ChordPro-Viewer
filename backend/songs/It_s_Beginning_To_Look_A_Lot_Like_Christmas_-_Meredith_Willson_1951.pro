@@ -1,0 +1,35 @@
+{title: It’s Beginning To Look A Lot Like Christmas}
+{subtitle: Meredith Willson 1951}
+
+It's [G]beginning to look a [C]lot like [G]Christmas,
+every[B7]where you [C]go [E7]
+Take a [Am]look in the five-and-[D]ten, 
+[D7]glistening once a[Am]gain,
+with [D]candy canes and [A7]silver lanes a[Am]glow [D]
+   
+It's be[G]ginning to look a [C]lot like [G]Christmas,
+toys in [B7]every [C]store [E7]
+But the [Am]prettiest sight to [F#7]see,
+is the [G]holly that will [E7]be,
+on your [Am]own [D7]front [G]door
+
+A pair of [B7]hop along boots and a pistol that shoots
+[E7]Is the wish of [B7]Barney and [Em]Ben
+[D7]Dolls that will talk and will [A7]go for a walk
+Is the [D7]hope of [A7]Janice and [D]Jen
+And [D7]Mom and Dad can [A7]hardly wait for [Am]school to start a[D]gain [D7]
+
+It's be[G]ginning to look a [C]lot like [G]Christmas, 
+every[B7]where you [C]go  [E7]
+There's a [Am]tree in the Grand Ho[D]tel, 
+[D7]one in the park as [Am]well,
+the [D]sturdy kind that [A7]doesn't mind the [Am]snow [D]
+
+It's be[G]ginning to look a [C]lot like [G]Christmas,
+soon the [B7]bells will [C]start [E7]
+And the [Am]thing that will make them [F#7]ring,
+is the [G]carol that you [E7]sing,
+right with[Am]in [D7]your [G]heart
+
+{tag: 1950s}
+{tag: Christmas}

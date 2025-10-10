@@ -1,0 +1,36 @@
+{t:No Particular Place to Go}
+{st:Chuck Berry}
+
+Riding along in my [G]automobile
+My baby beside me at the wheel
+I stole a kiss at the turn of a [C]mile
+my curiosity running [G]wild
+crusin' and playin' the r[D]adio
+with no particular place to [G]go
+
+Riding along in my [G]automobile
+I's anxious to tell her the way I feel
+So I told her softly and [C]sincere
+and she leaned and whispered in my [G]ear
+cuddlin' more and drivin' [D]slow
+with no particular place to [G]go
+
+{c:Guitar Solo}
+
+No particular place to [G]go
+So we parked way out on ko-ko-mo
+The night was young and the moon was [C]gold
+So we both decided to take a [G]stroll
+Can you image the way I f[D]elt
+I couldn't unfasten her safety [G]belt
+
+Riding along in my [G]calaboose
+Still trying to get her belt a-loose
+all the way home I held a [C]grudge
+for the safety belt that wouldn't b[G]udge
+Crusin' and playing the r[D]adio
+with no particular place to [G]go
+
+{tag: Oldies}
+{tag: 1960s}
+{tag: 3 Chord}

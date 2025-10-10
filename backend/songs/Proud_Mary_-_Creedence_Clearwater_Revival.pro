@@ -1,0 +1,33 @@
+{title:Proud Mary}
+{subtitle:Creedence Clearwater Revival}
+{ipodid: 3885476133688678259}
+{c:Intro:}
+         [C]     [A]     [C]     [A]     [C]     [A]   [G]   [F]   [G]   [D]
+[D]Left a good job in the city, workin for the man every night and day
+and I never lost one minute of sleepin', worryin' 'bout the way things might
+have been.  [A]Big wheel a-keep on turnin'  Proud  [Bm]Mary keep on burnin',
+Roll [D]- in', rollin', rollin' on the river. 
+
+[D]Cleaned a lot of plates in Memphis,  pumped a lot of ‘tane down in New
+Orleans,  But I never saw the good side of the city, till I hitched a ride
+on a river boat queen. [A]Big wheel a-keep on turnin,  Proud [Bm]Mary keep on 
+burnin,  roll [D]- in, rollin, rollin on the river. 
+
+{c:Repeat intro}
+
+{c:Solo}
+
+{c:Repeat intro}
+
+[D]if you come down to the river, bet you're gonna find some people who live,
+you don't have to worry, cause you have no money, people on the river are
+happy to give.  [A]Big wheel keep on turnin, Proud [Bm]Mary keep on burnin,
+roll [D]- in,  rollin,  rollin on the river. 
+
+{ci:  Repeat and fade}
+
+{tag: Oldies}
+{tag: Country}
+{tag: Folk-rock}
+{tag: Sample}
+{tag: 4 Chord}
