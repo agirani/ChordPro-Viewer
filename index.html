@@ -224,6 +224,16 @@
 	        ⚠️ Error parsing ChordPro file.<br>
 	        ${err.message || "Unknown error"}
 	      </div>
+	      <pre style="
+	        background:#f4f4f4;
+	        border:1px solid #ccc;
+	        padding:10px;
+	        font-family:monospace;
+	        white-space:pre-wrap;
+	        color:#333;
+	        max-height:400px;
+	        overflow:auto;
+	      ">${chordProText.replace(/[<>]/g, (c) => c === '<' ? '&lt;' : '&gt;')}</pre>
 	    `;
 	  }
     }
