@@ -1,6 +1,6 @@
 {title: These Days}
 {subtitle: Jackson Browne as done by tom rush}
-[C][Em][Am][G][F] 
+[C] [Em] [Am] [G][ F] 
 {c: (repeat twice)}
 
 
@@ -9,7 +9,6 @@ I don't [C]do [Em]that much [Am]talking [G]these [F]days
 [Em]These days-
 [F]These days I seem to [Dm]think a lot
 [F]About the things that[Dm] I forgot to [C]do[G]
-{skip this For you}
 And [C]all the [Am]times I had the [F]chance to[C]
 
 And [C]I [Em]had [Am]a lover[G][F]
