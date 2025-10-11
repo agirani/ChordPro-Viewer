@@ -206,12 +206,26 @@
     });
 
     async function render() {
-      const delta = slider.value;
-      const parser = new ChordSheetJS.ChordProParser();
-      let song = parser.parse(chordProText);
-      if (delta != 0) song = song.transpose(delta);
-      const formatter = new ChordSheetJS.HtmlTableFormatter();
-      document.getElementById("output").innerHTML = formatter.format(song);
+	  try {
+      	const delta = slider.value;
+      	// Parse the song
+		const parser = new ChordSheetJS.ChordProParser();
+      	let song = parser.parse(chordProText);
+      	// transpose if needed
+		if (delta != 0) song = song.transpose(delta);
+      	// format the ouput
+		const formatter = new ChordSheetJS.HtmlTableFormatter();
+      	document.getElementById("output").innerHTML = formatter.format(song);
+	  } catch (err) {
+	    console.error("ChordPro render error:", err);
+	    const output = document.getElementById("output");
+	    output.innerHTML = `
+	      <div style="color:red; font-weight:bold;">
+	        ⚠️ Error parsing ChordPro file.<br>
+	        ${err.message || "Unknown error"}
+	      </div>
+	    `;
+	  }
     }
 
     async function loadDirectory(path = "") {
@@ -258,6 +272,7 @@
     }
 
     function openFileBrowser() {
+  	   document.getElementById("searchInput").value = ""; // Clear any previous search
       document.getElementById("fileModal").style.display = "block";
       loadDirectory();
     }
