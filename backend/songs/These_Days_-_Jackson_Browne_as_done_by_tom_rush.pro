@@ -24,7 +24,7 @@ Well [C]it's just [Am]that I've been [F]losing so [C]long
 Things are [C]bound to [Em]be [Am]improving [G]these [F]days
 [Em]These days-
 [F]These days I sit on [Dm]corner stones
-[F]And count the time [Dm]in quarter tones to [C]ten, {skip this my friend}[G]
+[F]And count the time [Dm]in quarter tones to [C]ten, [G]
 Don't [C]confront me [Em]with [Am]my failures[F]
 I had not forgotten them
 {tag: Folk-rock}
