@@ -1,8 +1,7 @@
 {title: These Days}
 {subtitle: Jackson Browne as done by tom rush}
-{ipodid:}
 [C][Em][Am][G][F] 
-{c:(repeat twice)}
+{c: (repeat twice)}
 
 
 Well [C]I've [Em]been out [Am]walking[G][F]
