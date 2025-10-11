@@ -15,8 +15,10 @@ const __dirname = path.dirname(__filename);
 const BASE_DIR = path.join(__dirname, "songs");
 if (!fs.existsSync(BASE_DIR)) fs.mkdirSync(BASE_DIR, { recursive: true });
 
-app.use(cors({ origin: "https://agirani.github.io" }));
-
+// app.use(cors({ origin: "https://agirani.github.io" }));
+app.use(cors({
+  origin: ["https://agirani.github.io", "http://localhost:8080", "null"], // allow GitHub Pages + local
+}));
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} | ${req.method} ${req.url}`);
   next();
