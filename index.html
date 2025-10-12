@@ -6,9 +6,41 @@
   <style>
     body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
     #output {
+	   flex: 1;
+      height: 80vh;
       font-family: monospace;
       margin-top: 5px;
       column-gap: 10px;
+  	   overflow-y: auto;         /* allow vertical scroll only within this area */
+  	   padding: 1rem;
+       box-sizing: border-box;
+       line-height: 1.5em;
+  	   scroll-behavior: smooth;  /* makes manual scrolling smooth too */
+    }
+    #container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-direction: row;
+/*      height: 10vh; */
+    }
+    .scroll-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .scroll-buttons button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #007aff;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .scroll-buttons button:hover {
+      background: #005ecb;
     }
 
     .file-btn {
@@ -26,13 +58,7 @@
     .modal {
       display: none;
       position: fixed;
-      z-index: 10;	.chord-sheet-table td {
-	   padding: 0;                /* remove inner padding */
-	   margin: 0;                 /* not usually applied to td, but safe */
-	   white-space: nowrap;   	/* prevent line breaks inside cells */
-       text-overflow: ellipsis; /* optional: show "..." if clipped */
-	   overflow: hidden;      /* optional: hide overflow if too long */	}
-
+      z-index: 10;	
       left: 0;
       top: 0;
       width: 100%;
@@ -40,7 +66,12 @@
       overflow: auto;
       background-color: rgba(0,0,0,0.4);
     }
-
+	.chord-sheet-table td {
+	   padding: 0;                /* remove inner padding */
+	   margin: 0;                 /* not usually applied to td, but safe */
+	   white-space: nowrap;   	/* prevent line breaks inside cells */
+       text-overflow: ellipsis; /* optional: show "..." if clipped */
+	   overflow: hidden;      /* optional: hide overflow if too long */	}
     .modal-content {
       background-color: #fff;
       margin: 5% auto;
@@ -155,17 +186,26 @@
   <script src="bundle.js"></script>
 </head>
 <body>
-  <button class="file-btn" onclick="openFileBrowser()">Select File</button>
-  <label>Transpose</label>
-  <input type="range" id="transposeSlider" min="-6" max="6" value="0">
-  <span id="transposeValue">0</span>
-  <label>Font size:</label>
-  <input type="range" min="8" max="36" value="12" id="fontSlider">
-  <span id="sizeValue">12</span>
-  <label>Columns:</label>
-  <input type="number" id="columnCount" min="1" max="4" value="1">
-  <button onclick="renderToNewTab()">Open in New Tab</button>
-
+  <div id="container">
+    <button class="file-btn" onclick="openFileBrowser()">Select File</button>
+    <label>&nbsp;&nbsp;Transpose&nbsp;&nbsp;</label>
+    <input type="range" id="transposeSlider" min="-6" max="6" value="0">
+    <span id="transposeValue">0</span>
+    <label> &nbsp;&nbsp;Font size:&nbsp;  </label>
+    <input type="range" min="8" max="36" value="12" id="fontSlider">
+    <span id="sizeValue">12</span>
+    <label> &nbsp;&nbsp;Columns:&nbsp;  </label>
+    <input type="number" id="columnCount" min="1" max="4" value="1">
+    <label>&nbsp;&nbsp;&nbsp;</label>
+    <button onclick="renderToNewTab()">Open in New Tab</button>
+  </div>
+  <div class="scroll-buttons" id="scrollControls" style="display:none;">
+    <label>Scrolling controls</label>
+    <button onclick="startAutoScroll(5)">5 sec/line (slow)</button>
+    <button onclick="startAutoScroll(2)">2 sec/line (medium)</button>
+    <button onclick="startAutoScroll(1)">1 sec/line (fast)</button>
+    <button onclick="stopAutoScroll()">Stop</button>
+  </div>
   <div id="output"></div>
 
   <!-- Modal for Server File Browser -->
@@ -195,7 +235,26 @@
 
     document.getElementById("columnCount").addEventListener("change", (e) => {
       colcount = parseInt(e.target.value, 10) || 1;
-      document.getElementById("output").style.columnCount = colcount;
+      const output = document.getElementById("output");
+      const scrollButtons = document.getElementById("scrollControls");
+      if (colcount ===1) {
+        // Reset multi-column layout completely
+        output.style.removeProperty("column-count");
+        output.style.removeProperty("column-gap");
+        output.style.whiteSpace = "normal";
+        output.style.overflowY = "auto";
+        output.style.height = "80vh";
+        scrollButtons.style.display = "block";
+      } else {
+        output.style.columnCount = colcount;
+        output.style.columnGap = "2rem";
+        output.style.whiteSpace = "normal";
+        output.style.overflowY = "auto";
+        output.style.overflowX = "hidden";
+        scrollButtons.style.display = "none";
+        stopAutoScroll (); 
+        output.scrollTop = 0; // reset position
+      }
     });
 
     const slider = document.getElementById("transposeSlider");
@@ -204,6 +263,38 @@
       valueDisplay.textContent = slider.value;
       render();
     });
+
+
+    const output = document.getElementById("output");
+
+    let scrollTimer = null;
+    let isScrolling = false;
+
+    function startAutoScroll(secondsPerLine) {
+      stopAutoScroll();
+
+      const lineHeight = fontsize; // px per line, adjust if font size differs
+      const interval = secondsPerLine * 1000; // convert to ms
+      if (isScrolling) return;
+      isScrolling = true;
+      scrollTimer = setInterval(() => {
+        // ✅ Stop when we reach the bottom
+        if (output.scrollTop + output.clientHeight >= output.scrollHeight) {
+          stopAutoScroll();
+          return;
+        }
+        output.scrollTop += lineHeight;
+      }, interval);
+    }
+
+    function stopAutoScroll() {
+      if (scrollTimer) {
+        clearInterval(scrollTimer);
+        scrollTimer = null;
+      }
+      isScrolling = false;
+    }
+
 
     async function render() {
 	  try {
@@ -236,6 +327,13 @@
 	      ">${chordProText.replace(/[<>]/g, (c) => c === '<' ? '&lt;' : '&gt;')}</pre>
 	    `;
 	  }
+      const scrollButtons = document.getElementById("scrollControls");
+      if (colcount ===1) {
+        scrollButtons.style.display = "block";
+      } else {
+        scrollButtons.style.display = "none";
+        stopAutoScroll (); 
+      }
     }
 
     async function loadDirectory(path = "") {
@@ -308,11 +406,28 @@
             <title>${file.name}</title>
 			  <style>
 			    body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
-			    #output {
-			      font-family: monospace;
-			      margin-top: 5px;
-			      column-gap: 10px;
-			    }
+               #output {
+                 font-family: monospace;
+                 margin-top: 5px;
+                 column-gap: 10px;
+  		          overflow-y: auto;         /* allow vertical scroll only within this area */
+  		          padding: 1rem;
+  		          scroll-behavior: smooth;  /* makes manual scrolling smooth too */
+               }
+               .scroll-buttons {
+                 display: flex;
+                 gap: 0.5rem;
+                 margin-top: 0.5rem;
+               }
+
+               .scroll-buttons button {
+                 padding: 0.5rem 1rem;
+                 border: none;
+                 background: #007aff;
+                color: white;
+                border-radius: 6px;
+                cursor: pointer;
+               }
 			
 			    .file-btn {
 			      font-size: 15px;
