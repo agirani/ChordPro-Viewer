@@ -1,6 +1,6 @@
 {title: When The Ship Comes In}
 {subtitle: bob dylan}
-{capo: 0}
+{capo: 2}
 [G] [C] [G] [Em] [C] [D] [G]
 
 Oh the [G]time will come up when the [C]wind will [G]stop
@@ -10,7 +10,7 @@ The hour that the [C]ship [D]comes [G]in.
 Oh the [D]seas will split and the [C]ship will [G]hit
 And the [D]sand on the [C]shoreline will be [G]shakin'
 And the tide will s[D]ound and the [C]waves will [G]pound
-And the mornin' [C#]will [G]be [D]breaki[G]n'![C]  [D] [G]
+And the mornin' [C]will [G]be [D]breaki[G]n'![C]  [D] [G]
 
 [G]Oh the fishes will laugh as they [C]swim out of the [G]path
 And the [Em]seagulls, [C]they'll be s[G]milin'

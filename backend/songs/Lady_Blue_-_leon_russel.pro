@@ -27,5 +27,6 @@ and more...
 (Sax solo)
 Bbmaj7 / /C7/ /Amin7/Dmin7/Bbmaj7/Gmin7  C11/
 
+{c:repeat verse one and end}
 {tag: 1970s}
 {tag: Rock}
