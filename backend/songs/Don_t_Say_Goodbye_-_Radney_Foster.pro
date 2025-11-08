@@ -1,6 +1,5 @@
 {title: Don't Say Goodbye}
 {subtitle: Radney Foster}
-{ipodid: 149220875791752581}
 [D]Well I heard it from confidential sources
 you've been t[G]hinking 'bout losing my name
 and you've been di[G]alin' some unlisted n[D]umber

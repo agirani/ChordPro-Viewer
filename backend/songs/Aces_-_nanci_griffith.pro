@@ -1,6 +1,5 @@
 {title: Aces}
 {subtitle: nanci griffith}
-{ipodid: 149220875791754332}
 
 {c:CAPO 1}
 

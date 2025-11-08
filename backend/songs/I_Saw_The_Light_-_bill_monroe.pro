@@ -1,6 +1,5 @@
 {title: I Saw The Light}
 {subtitle: bill monroe}
-{ipodid: 3764040807048760060}
 
 [G]I saw the light, I saw the light
 [C]No more darkness, no more [G]night

@@ -1,7 +1,6 @@
 {title: Pencil Thin Mustache}
 
 {st:Jimmy Buffett}
-{ipodid:}
 {capo 2}
 
 [D]Now they make new [F#7]movies in [B7]old black and white

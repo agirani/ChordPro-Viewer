@@ -1,7 +1,6 @@
 {title: Don't Dream It's Over}
 {subtitle: neil finn}
 {Capo: 2}
-{ipodid: 149220875791751278}
 
 [D]There is freedom within, [Bm]there is freedom without
 [G]Try to catch the deluge in a paper [F#]cup

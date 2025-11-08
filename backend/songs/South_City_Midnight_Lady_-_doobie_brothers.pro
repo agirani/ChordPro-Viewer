@@ -1,6 +1,5 @@
 {title: South City Midnight Lady}
 {subtitle: doobie brothers}
-{ipodid: 3764040807048750181}
 {c:F at 5 slide up to G 7 then D 5 C at 3, repeat...}
 [F]Up [G]all night I could [D]not [C]sleep
 [F]The [G]whiskey that I drank [D]was [C]cheap

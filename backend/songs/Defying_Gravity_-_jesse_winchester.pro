@@ -1,6 +1,5 @@
 {title: Defying Gravity}
 {subtitle: jesse winchester}
-{ipodid:}
  [C] [G7] [C]
 
 [C]I live on a big round [G7]ball

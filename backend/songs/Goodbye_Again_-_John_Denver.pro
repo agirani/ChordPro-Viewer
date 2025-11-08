@@ -1,6 +1,5 @@
 {title: Goodbye Again}
 {subtitle: John Denver}
-{ipodid:}
 [C]It’s five o[G]clock this [Am]morning, and the [F]sun is on the [C]rise
 Theres [G]frosting on the [Am]window pane [F]sorrow in your [G7]eyes
 [C]The stars are [G]fading quiet[Am]ly, the [F]night is nearly [C]gone

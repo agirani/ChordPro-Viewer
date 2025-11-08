@@ -1,6 +1,5 @@
 {title: Willin'}
 {subtitle: little feat}
-{ipodid: 3885476133688682515}
 {c:  Capo 2}
 I've been [G]warped by the rain, [D]driven by the snow
 [Em]Drunk and I'm dirty, but [C]don't you know

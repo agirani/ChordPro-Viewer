@@ -1,6 +1,5 @@
 {title: Angie}
 {subtitle: rolling stones}
-{ipodid: 149220875791753283}
 
 [Am]Angie[E7], Angie, [G]when will those [F]clouds all disap[C]pear? 
 [Am]Angie, [E7]Angie, [G]where will it [F]lead us from [C]here? 

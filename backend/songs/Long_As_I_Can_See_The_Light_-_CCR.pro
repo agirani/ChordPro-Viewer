@@ -1,6 +1,5 @@
 {t:Long As I Can See The Light}
 {st:CCR}
-{ipodid: 149220875791745602}
 {define E6 base-fret 1 frets X 2 2 1 2 X}
 
 {c:Intro:}

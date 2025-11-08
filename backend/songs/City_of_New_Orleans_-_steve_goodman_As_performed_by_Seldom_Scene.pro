@@ -1,6 +1,5 @@
 {title: City of New Orleans}
 {subtitle: steve goodman As performed by Seldom Scene}
-{ipodid: 149220875791743495}
 [D]Riding on the [A]City of New Or[D]leans, 
 [Bm]Illinois Central, [G]Monday morning [D]rail, [A] 
 [D]Fifteen cars and fi[A]fteen restless [D]riders, 

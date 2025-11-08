@@ -1,6 +1,5 @@
 {title: Goodnight Irene}
 {subtitle: lead belly}
-{ipodid:}
 
 {c:1 2 3 1 2 D7 1 2 3 1 2 3 G 2 3 1 2 3} 
 

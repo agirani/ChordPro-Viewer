@@ -2,7 +2,6 @@
 {subtitle: The Clancy Brothers version}
 {Capo: 4}
 {zoom-ipad: 0.547911}
-{ipodid:}
 {c:chords are broken}
 [B]Tis of a brave young highwayman this [F#7]story I will [B]tell
 His[B] name was Willie Brennan and in [E]Ireland he did [B]dwell

@@ -1,6 +1,5 @@
 {title: Walk Right In}
 {subtitle: guss cannon, famous by rooftop singers}
-{ipodid: 149220875791744862}
 
 [C]Walk right in, sit right [A7]down,
 [D7]Daddy, let your [G7]mind roll [C]on. [G7]

@@ -1,6 +1,5 @@
 {title: Allentown}
 {subtitle: billy joel}
-{ipodid: 149220875791744202}
 
 [C]3x [D] [G]
 

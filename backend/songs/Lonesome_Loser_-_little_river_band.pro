@@ -1,6 +1,5 @@
 {title: Lonesome Loser}
 {subtitle: little river band}
-{ipodid: 3764040807048753798}
 
 {c:N.C.}
 Have you heard about the lonesome loser, 

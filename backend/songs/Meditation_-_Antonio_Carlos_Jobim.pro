@@ -1,6 +1,5 @@
 {title: Meditation}
 {subtitle: Antonio Carlos Jobim}
-{ipodid: 149220875791754360}
 
 [G6]In my [Gdim]loneliness,
 When you're [G6]gone and I'm all by myself,

@@ -1,6 +1,5 @@
 {title: Last Night I Had The Strangest Dream}
 {subtitle: ed mccurdy as done by john denver}
-{ipodid: 3764040807048752827}
 
 {c:PLAY WITH CAPO ON 3RD FRET TO PLAY ALONG WITH JOHN DENVER}
 

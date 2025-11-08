@@ -1,6 +1,5 @@
 {title: Ripple}
 {subtitle: Grateful Dead}
-{ipodid:}
 
 [G][C][G][C][G][D][C][G]
  

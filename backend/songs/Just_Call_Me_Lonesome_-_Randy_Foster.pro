@@ -1,7 +1,6 @@
 #From: bross@uoguelph.ca (Brian R Ross)
 {t:Just Call Me Lonesome}
 {st:Randy Foster}
-{ipodid: 149220875791752580}
 
 {soc}
 [C]Just call me [F]lonesome, heartbroke and [C]then some

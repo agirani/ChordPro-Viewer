@@ -1,6 +1,5 @@
 {title: Big Rock Candy Mountain}
 {subtitle: harry mcclintock}
-{ipodid: 149220875791744768}
 
 [C]One evening as the sun went down and the jungle[G] fires were[C] burning
 [C]Down the track came a hobo hiking and he said, "Boys[G] I'm not[C] turning" 

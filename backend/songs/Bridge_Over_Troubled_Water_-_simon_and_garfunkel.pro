@@ -1,6 +1,5 @@
 {title: Bridge Over Troubled Water}
 {subtitle: simon and garfunkel}
-{ipodid:}
 
 {c:maybe not. Capo 3}
 

@@ -1,7 +1,6 @@
 # Greensleeves Sample Song for SongBook
 {t:Greensleeves}
 {st:traditional}
-{ipodid: 149220875791750250}
 {key: Em}
 {sot}
 E|---|------|-0--1-0-|------|---

@@ -1,6 +1,5 @@
 {title: Blue Bayou} 
 {subtitle: Roy Orbison w/ Joe Melson}
-{ipodid: 149220875791750124}
  
 [C]I feel so bad, I got a worried mind
 [G7]I'm so lonesome all the time

@@ -1,6 +1,5 @@
 {title: The Brand New Tennessee Waltz}
 {subtitle: jesse winchester}
-{ipodid: 149220875791748754}
 
  [G] [D] [A7] [D]
 

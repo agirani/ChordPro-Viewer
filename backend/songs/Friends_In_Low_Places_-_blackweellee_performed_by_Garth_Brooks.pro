@@ -1,6 +1,5 @@
 {title: Friends In Low Places}
 {subtitle: blackweel/lee performed by Garth Brooks}
-{ipodid:}
 {c:capo 2}
 {c: A                          Edim                    Bm                                E        on}
 {c:|---------------|------------0--|-----------------2--|------------2^4--|}

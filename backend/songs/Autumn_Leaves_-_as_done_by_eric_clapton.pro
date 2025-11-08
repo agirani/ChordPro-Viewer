@@ -1,6 +1,5 @@
 {title: Autumn Leaves}
 {subtitle: as done by eric clapton}
-{ipodid: 3764040807048749841}
 
  [Bm]
 

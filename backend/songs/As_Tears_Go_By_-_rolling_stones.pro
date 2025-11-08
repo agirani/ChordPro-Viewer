@@ -1,6 +1,5 @@
 {title: As Tears Go By}
 {subtitle: rolling stones}
-{ipodid:}
 {c:capo 4 to shift key to E}
  [C] [D] [F] [G]
 

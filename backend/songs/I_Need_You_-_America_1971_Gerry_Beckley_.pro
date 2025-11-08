@@ -1,7 +1,6 @@
 {title: I Need You}
 {subtitle: America 1971 (Gerry Beckley) }
 {Capo: 2}
-{ipodid:}
 
 We [A]used to laugh, we [Amaj7]used to cry, 
 [Em7]we used to bow our [G7]heads then, [C]wonder why 

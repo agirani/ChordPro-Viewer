@@ -1,6 +1,5 @@
 {title: Molly Malone}
 {subtitle: trad. dubliners}
-{ipodid: 149220875791749830}
 
 In [G]Dublin's fair [Em]city, where the [Am]girls are so [D7]pretty,
 I [G]first set my [Em]eyes on sweet [A]Molly Ma[D]lone.

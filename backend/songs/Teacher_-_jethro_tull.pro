@@ -1,6 +1,5 @@
 {title: Teacher}
 {subtitle: jethro tull}
-{ipodid: 149220875791748776}
 
 {sot}
 Main riff

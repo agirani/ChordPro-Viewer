@@ -1,6 +1,5 @@
 {title: Louisiana Blue}
 {subtitle: Radney Foster}
-{ipodid: 149220875791752586}
 
 Intro: [A7]  [A7]  [G][A7]  [D][A7]
 

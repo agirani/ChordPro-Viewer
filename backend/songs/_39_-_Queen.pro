@@ -1,6 +1,5 @@
 {title: '39}
 {subtitle: Queen}
-{ipodid: 149220875791752412}
 [G][D][Em][C]
 [G][D][C]
 

@@ -1,6 +1,5 @@
 {title: This Town}
 {subtitle: david mallett}
-{ipodid:}
  [C] [F] [G] [C] [F] [G] [C] [F] [G] [C] [F] [G]
 
 [C]This town's got [F]rich folks [G]dyin', 

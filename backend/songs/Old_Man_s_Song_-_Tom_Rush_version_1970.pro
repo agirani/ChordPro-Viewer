@@ -1,6 +1,5 @@
 {title: Old Man's Song}
 {subtitle: Tom Rush version 1970}
-{ipodid: 149220875791754756}
 
 {c:verse A part, most of song}
 [Am]Hair on your head

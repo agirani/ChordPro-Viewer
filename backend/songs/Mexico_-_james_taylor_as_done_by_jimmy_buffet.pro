@@ -1,7 +1,6 @@
 {title: Mexico}
 {subtitle: james taylor as done by jimmy buffet}
 {Capo: 2}
-{ipodid: 3764040807048752348}
  [D] [Bm] [A] [Asus4] [Esus4] [Bm] [A] [Em7] [G/B] [Cadd9] [G]
  [D] [Bm] [A] [Asus4] [Esus4] [Bm] [A] [Em7] [G/B] [Cadd9] [G]
 

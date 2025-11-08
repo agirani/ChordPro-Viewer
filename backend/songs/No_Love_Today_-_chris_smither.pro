@@ -1,6 +1,5 @@
 {title: No Love Today}
 {subtitle: chris smither}
-{ipodid: 149220875791745164}
 
 [Am]I don't know much, when I knew less, 
 I was hear[E7]tbroke for the fi[Am]rst time,

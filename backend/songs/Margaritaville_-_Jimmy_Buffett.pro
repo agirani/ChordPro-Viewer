@@ -1,7 +1,6 @@
 #mhall@moe.coe.uga.edu (Mike Hall) 
 {t:Margaritaville}
 {st:Jimmy Buffett}
-{ipodid: 149220875791748870}
 
 [D]Nibblin' on sponge cake
 Watchin' the sun bake

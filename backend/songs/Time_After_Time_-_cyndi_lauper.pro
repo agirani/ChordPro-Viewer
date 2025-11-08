@@ -1,6 +1,5 @@
 {title: Time After Time}
 {subtitle: cyndi lauper}
-{ipodid:}
 
 [F] [G] [Em] [F]{c: 2x}
 

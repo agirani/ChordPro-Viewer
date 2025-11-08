@@ -1,6 +1,5 @@
 {title: Walking My Baby Back Home}
 {subtitle: Nat King Cole}
-{ipodid: 149220875791748508}
 
 {sot}
 Cmaj7     X-3-2-0-0-0

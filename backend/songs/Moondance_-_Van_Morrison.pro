@@ -1,7 +1,6 @@
 {title: Moondance}
 
 {st:Van Morrison}
-{ipodid: 149220875791755083}
 
 [Am7]Well it's a [Gm7]marvelous [Am7]night for a [Gm7]moondance 
 [Am7]with the [Gm7]stars up [Am7]above in your [Gm7]eyes

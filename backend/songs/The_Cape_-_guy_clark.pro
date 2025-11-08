@@ -1,6 +1,5 @@
 {title: The Cape}
 {subtitle: guy clark}
-{ipodid:}
 {c:These chord progressions may be more familiar as a C walk down}
 
  [C] [C/B] [Am/A] [C/G] [F] [G] [C]

@@ -1,7 +1,6 @@
 {title: Sunshine}
 {subtitle: Jonathan Edwards 1971}
 {Capo: 2}
-{ipodid:}
 
 [A]
 

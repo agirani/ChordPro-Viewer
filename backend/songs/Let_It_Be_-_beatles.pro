@@ -1,6 +1,5 @@
 {title: Let It Be}
 {subtitle: beatles}
-{ipodid: 149220875791749129}
 
  [C] [G] [Am] [F] [C] [G]
  [F] [C] [Dm] [C]

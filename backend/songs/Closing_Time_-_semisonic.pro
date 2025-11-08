@@ -1,6 +1,5 @@
 {title: Closing Time}
 {subtitle: semisonic}
-{ipodid: 149220875791749727}
 
  [G] [D] [Am] [C]
  [G] [D] [Am] [C]

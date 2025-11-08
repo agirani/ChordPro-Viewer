@@ -1,6 +1,5 @@
 {title: I Knew This Place}
 {subtitle: david mallett}
-{ipodid:}
 {c:capo 3}
 I [D] knew this place, I knew it well, 
 [G] every sound and [D] every smell,

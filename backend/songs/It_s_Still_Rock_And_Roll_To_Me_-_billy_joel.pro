@@ -1,7 +1,6 @@
 {title: It's Still Rock And Roll To Me}
 {subtitle: billy joel}
 {Capo: 5}
-{ipodid:}
 
  [C] [C] [C] [C]
 

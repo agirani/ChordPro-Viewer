@@ -1,6 +1,5 @@
 {title: Listen To The Music}
 {subtitle: doobie brothers}
-{ipodid: 149220875791746305}
 
 {sot}
 |E          |      A    |E          |      A    |

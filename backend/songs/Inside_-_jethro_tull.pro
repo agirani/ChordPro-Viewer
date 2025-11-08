@@ -1,6 +1,5 @@
 {title: Inside}
 {subtitle: jethro tull}
-{ipodid: 149220875791744082}
 
 {sot}
 CAPO: 3rd fret (Will then sound in the recorded key of F)

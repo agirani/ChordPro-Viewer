@@ -1,6 +1,5 @@
 {title: All You Zombies}
 {subtitle: hooters}
-{ipodid:}
 
  [F] [Em] [Am] [Am]
  [F] [G] [Am] [Am]

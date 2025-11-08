@@ -1,6 +1,5 @@
 {title: Scotch And Soda}
 {subtitle: Kingston Trio, also Hank Thompson written by Dave Guard and unknown}
-{ipodid:}
 
 {sot}
    Fmaj7   Bb9     Gdim

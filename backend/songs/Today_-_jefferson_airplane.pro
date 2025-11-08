@@ -1,6 +1,5 @@
 {title: Today}
 {subtitle: jefferson airplane}
-{ipodid: 149220875791748686}
 
 [D]Today, I feel like pleasing you more than before
 Today, I know what I wanna do, but I don't know what for

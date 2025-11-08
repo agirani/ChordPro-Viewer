@@ -1,6 +1,5 @@
 {title: This Masquerade}
 {subtitle: leon russell}
-{ipodid:}
 
 [Am] [AmM7] [Am7]  [D9]
 

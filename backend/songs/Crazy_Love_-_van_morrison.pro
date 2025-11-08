@@ -1,6 +1,5 @@
 {title: Crazy Love}
 {subtitle: van morrison}
-{ipodid: 149220875791755115}
 
 {c:Capo 5}
 

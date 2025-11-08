@@ -1,7 +1,6 @@
 {title: Garden Song}
 {subtitle: David Mallett}
 {Capo: 5}
-{ipodid: 149220875791745834}
 [C]Inch by inch, [F] row by [C] row 
 [F]gonna [G] make this [C] garden grow
 [F]All you [G] need is a [C] rake and a [Am] hoe 

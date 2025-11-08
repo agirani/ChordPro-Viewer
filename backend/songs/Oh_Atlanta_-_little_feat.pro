@@ -1,6 +1,5 @@
 {title: Oh Atlanta}
 {subtitle: little feat}
-{ipodid: 3764040807048753780}
 {sot}
 |Am      |E7       |F7  Bb  Eb  E  F |
 |F       |F        |F                |F         |  

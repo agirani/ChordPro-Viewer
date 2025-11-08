@@ -1,6 +1,5 @@
 {title: Aces}
 {subtitle: cheryl wheeler as done by suzy bogguss}
-{ipodid:}
 
 {c:CAPO 1}
 

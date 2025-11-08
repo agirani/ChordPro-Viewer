@@ -1,6 +1,5 @@
 {title: Stand By Me}
 {subtitle: ben e king}
-{ipodid: 3764040807048756332}
 {c:capo 4}
 [A]/ / / | / / / / | [F#m]/ / / | / / / / |
 [D]/ / / | [E]/ / / | [A]/ / / | / / / / ||

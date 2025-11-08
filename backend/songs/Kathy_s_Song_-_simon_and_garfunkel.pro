@@ -1,6 +1,5 @@
 {title: Kathy's Song}
 {subtitle: simon and garfunkel}
-{ipodid:}
 [C] [F] [C] [F]
 [C]I hear the [F]drizzle of the [C]rain
 [Dm]Like a [Am]memo[F]ry it [G7]falls

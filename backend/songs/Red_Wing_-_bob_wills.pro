@@ -1,6 +1,5 @@
 {title: Red Wing}
 {subtitle: bob wills}
-{ipodid: 149220875791743498}
 
 [C]There once was an Indian maid
 A [F]shy little prairie [C]maid

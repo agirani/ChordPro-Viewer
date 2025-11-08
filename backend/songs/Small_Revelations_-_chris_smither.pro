@@ -1,6 +1,5 @@
 {title: Small Revelations}
 {subtitle: chris smither}
-{ipodid: 149220875791745169}
 
 [E][A][D][G][D]
 

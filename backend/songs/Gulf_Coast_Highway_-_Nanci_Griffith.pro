@@ -1,6 +1,5 @@
 {title: Gulf Coast Highway}
 {subtitle: Nanci Griffith}
-{ipodid:}
 {c:capo 3}
 {c:intro: chords to chorus}
 

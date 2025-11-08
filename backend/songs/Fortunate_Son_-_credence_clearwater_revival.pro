@@ -1,6 +1,5 @@
 {title: Fortunate Son}
 {subtitle: credence clearwater revival}
-{ipodid: 149220875791745596}
 [G]Some folks are born, [F]made to wave the flag
 [C]Ooh, they're red white and[G] blue
 [G]And when the band plays [F]hail to the chief

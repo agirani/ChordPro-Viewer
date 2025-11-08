@@ -1,6 +1,5 @@
 {title: I Will}
 {subtitle: Beatles}
-{ipodid: 149220875791743074}
 
 Who [C]knows how [Em]long I've [Dm]loved you [G]
 You [C]know I [Em] love you [G]still

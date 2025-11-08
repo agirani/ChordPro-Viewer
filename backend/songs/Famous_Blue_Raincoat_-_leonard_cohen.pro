@@ -1,6 +1,5 @@
 {title: Famous Blue Raincoat}
 {subtitle: leonard cohen}
-{ipodid: 149220875791748967}
  [Am] [F] [Dm7] [Em7]
  [Am] [F] [Dm7] [Em7]
 

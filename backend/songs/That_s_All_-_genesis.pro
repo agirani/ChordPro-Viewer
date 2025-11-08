@@ -1,6 +1,5 @@
 {title: That's All}
 {subtitle: genesis}
-{ipodid: 3764040807048751451}
 
 {sot}
 Chords:

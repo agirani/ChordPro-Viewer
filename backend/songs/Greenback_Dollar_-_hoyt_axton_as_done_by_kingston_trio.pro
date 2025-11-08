@@ -1,6 +1,5 @@
 {title: Greenback Dollar}
 {subtitle: hoyt axton, as done by kingston trio}
-{ipodid: 149220875791749159}
 
  [Em] [D]
 {c:4x}

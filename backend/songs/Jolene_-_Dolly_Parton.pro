@@ -1,6 +1,5 @@
 {title: Jolene}
 {subtitle: Dolly Parton}
-{ipodid:}
 {cap:4}
 {c: Intro & main riff (*):
 e|-------------------------------------|

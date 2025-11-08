@@ -1,6 +1,5 @@
 {title: Today}
 {subtitle: randy sparks of new christy minstrels as done by john denver}
-{ipodid: 3764040807048752540}
 
 {c:capo on the 2nd fret}
 

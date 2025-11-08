@@ -1,6 +1,5 @@
 {title:Proud Mary}
 {subtitle:Creedence Clearwater Revival}
-{ipodid: 3885476133688678259}
 {c:Intro:}
          [C]     [A]     [C]     [A]     [C]     [A]   [G]   [F]   [G]   [D]
 [D]Left a good job in the city, workin for the man every night and day

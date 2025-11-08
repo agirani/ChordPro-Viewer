@@ -1,6 +1,5 @@
 {title: Little Wing}
 {subtitle: jimi hendrix}
-{ipodid: 3764040807048748705}
 {sot}
 G  = 3-5-5-4-3-3
 C  = 3-3-5-5-5-3

@@ -1,6 +1,5 @@
 {title: Best Of My Love}
 {subtitle: eagles}
-{ipodid: 149220875791752004}
 [Cmaj7][C][Cmaj7][C][Fmaj7/11][Fmaj7][Dm]
 [C][Dm]
 

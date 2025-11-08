@@ -1,6 +1,5 @@
 {title: America}
 {subtitle: Simon and Garfunkel}
-{ipodid:149220875791751255}
 
 {c:Capo II}
  

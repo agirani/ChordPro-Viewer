@@ -1,6 +1,5 @@
 {title: Greenfields}
 {subtitle: the brothers four}
-{ipodid: 3764040807048758314}
 
 {c:Capo 2nd fret}
 

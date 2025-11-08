@@ -1,6 +1,5 @@
 {title: Any Old Time}
 {subtitle: jimmie rodgers as done by Tony Rice}
-{ipodid:}
 
 [G]I just received your letter [G7]
 [C]You're down and out you [G]say

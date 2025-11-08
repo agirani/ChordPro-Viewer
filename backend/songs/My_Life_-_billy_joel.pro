@@ -1,6 +1,5 @@
 {title: My Life}
 {subtitle: billy joel}
-{ipodid: 3764040807048748083}
 
 {c:(D) = hold chord into instrumental}
 

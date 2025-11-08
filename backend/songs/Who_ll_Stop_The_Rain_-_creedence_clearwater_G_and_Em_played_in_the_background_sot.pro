@@ -1,5 +1,4 @@
 {title: Who'll Stop The Rain}
-{ipodid: 149220875791745598}
 {subtitle: creedence clearwater (G and Em played in the background)
 {sot}                     
 e|-------3-------|-------3-------|-------3-------|-------3-

@@ -1,6 +1,5 @@
 {title: Church Street Blues}
 {subtitle: Norman Blake}
-{ipodid: 149220875791751453}
 
 [C]Lord I been [F]hangin' [C]out of town [G]in that low down [C]rain
 Watchin' [F]good time [C]Charlie friend is [G]drivin' me [C]insane

@@ -1,6 +1,5 @@
 {title: And We Danced}
 {subtitle: hooters}
-{ipodid: 149220875791748217}
 
  [D] [E] [F#m] [A] [D] [E]
 She was [D]a       [A]be-bop [E] baby o[F#m]n a    [E]   hard[F#m] day's [D]     night            

@@ -1,6 +1,5 @@
 {title: Where Do The Children Go}
 {subtitle: hooters}
-{ipodid:}
 
 {sot}
 Intro and main riff are A to D as follows:

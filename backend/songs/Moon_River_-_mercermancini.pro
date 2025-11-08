@@ -1,6 +1,5 @@
 {title: Moon River}
 {subtitle: mercer/mancini}
-{ipodid: 3764040807048758099}
 
 {c:Capo on 1st fret}
 

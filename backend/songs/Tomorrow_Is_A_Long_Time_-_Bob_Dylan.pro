@@ -1,6 +1,5 @@
 {title: Tomorrow Is A Long Time}
 {subtitle: Bob Dylan}
-{ipodid:}
 {c:*D tuning / capo 4}
 
 [G] If today was not an [C] endless [G] highway  

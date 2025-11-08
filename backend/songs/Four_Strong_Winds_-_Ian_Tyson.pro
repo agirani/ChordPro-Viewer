@@ -1,6 +1,5 @@
 {title: Four Strong Winds}
 {subtitle:  Ian Tyson}
-{ipodid:}
 
 {c:capo 2 in G (key of A)}
 {c:picks:  5432 or 5342}

@@ -1,6 +1,5 @@
 {title: Hallelujah}
 {subtitle: leonard cohen}
-{ipodid:149220875791744978}
 [G][Em][G][Em]
 
 [G]I heard there was a[Em] secret chord

@@ -1,6 +1,5 @@
 {t:Cheeseburger in Paradise}
 {st:Jimmy Buffett}
-{ipodid: 149220875791748887}
 #1978
 
 {sot}

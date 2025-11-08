@@ -1,6 +1,5 @@
 {title: Lodi}
 {subtitle: john fogarty  creedence clearwater revival}
-{ipodid: 3764040807048749463}
 {c:Capo III  (a bit hi for me, try open *}
  [G] [D] [C] [G]
 

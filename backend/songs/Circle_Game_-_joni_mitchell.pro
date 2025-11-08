@@ -1,6 +1,5 @@
 {title: Circle Game}
 {subtitle: joni mitchell}
-{ipodid: 149220875791748310}
 
 [C]Yesterday a [F]child came out to [C]wonder [G]
 [C]Caught a dragon[F]fly inside a [G]jar [F] [G]

@@ -1,6 +1,5 @@
 {title: Main Street}
 {subtitle: david mallett}
-{ipodid: 3764040807048749726}
 
 [C]There’s a new super[F]store on the [C]outside of town
 It’s the [F]very first thing you [C]meet

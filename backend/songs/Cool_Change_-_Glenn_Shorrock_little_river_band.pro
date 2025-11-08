@@ -1,6 +1,5 @@
 {title: Cool Change}
 {subtitle: Glenn Shorrock  little river band}
-{ipodid: 3764040807048753803}
  [A] [G/A]
  [D/A] [A/C#] [D] [D/E]
 

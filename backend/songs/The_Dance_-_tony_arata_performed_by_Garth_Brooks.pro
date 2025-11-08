@@ -1,6 +1,5 @@
 {title: The Dance}
 {subtitle: tony arata performed by Garth Brooks}
-{ipodid:149220875791747400}
 
 [G]Looking back on the [F]memory [C]of
 The [D]dance we shared neath the [C]stars [G]above[D]

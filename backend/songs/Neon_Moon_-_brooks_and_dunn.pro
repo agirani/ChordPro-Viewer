@@ -1,6 +1,5 @@
 {title: Neon Moon}
 {subtitle: brooks and dunn}
-{ipodid: 149220875791744450}
 
  [A] [A] [A] [A]
 

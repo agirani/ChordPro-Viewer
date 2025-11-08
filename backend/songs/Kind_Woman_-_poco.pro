@@ -1,6 +1,5 @@
 {title: Kind Woman}
 {subtitle: poco}
-{ipodid: 149220875791752108}
 I [A]got a good reason for [D]lov[A]ing [E]you, [D]
 it's an old fashioned [A]sign
 I [A]kinda get the feelin' like [D]mmm you [A]know [E]when, [D]

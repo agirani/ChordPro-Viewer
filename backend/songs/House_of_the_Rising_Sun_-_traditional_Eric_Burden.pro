@@ -1,6 +1,5 @@
 {title: House of the Rising Sun}
 {subtitle: traditional, Eric Burden}
-{ipodid: 149220875791747356}
 {c: 6/8 time –  6 to the bar: emphasize 1 and 4; finger pick T i m r m i}
 There is a [Am]hou[C]se in New [D]Orleans, [F]
 They call[Am] the "Rising[C] Sun", [E7]

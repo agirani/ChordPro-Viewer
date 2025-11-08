@@ -1,6 +1,5 @@
 {title: Cool Water}
 {subtitle: Bob Nolan}
-{ipodid:149220875791750618}
 
 [C]All day I've faced a [G7]barren waste
 With[C]out the taste of [G7]water cool [C]water

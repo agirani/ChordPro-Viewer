@@ -1,6 +1,5 @@
 {title: Don't Stop Me Now}
 {subtitle: Queen}
-{ipodid: 3764040807048756101}
 {c:Tuning: Standard (EADGBe), No Capo}
 
 {sot}

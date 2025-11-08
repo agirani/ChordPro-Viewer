@@ -1,6 +1,5 @@
 {title:Early Mornin' Rain}
 {st:Gordon Lightfoot}
-{ipodid:}
 [D]In the early mornin' r[A]ain, with a do[G]llar in my h[D]and,
 With an achin' in my he[Em]art, a[G]nd my pockets full of sa[D]nd.
 I'm a long way from h[Em]ome, and I miss my loved ones [D]so,

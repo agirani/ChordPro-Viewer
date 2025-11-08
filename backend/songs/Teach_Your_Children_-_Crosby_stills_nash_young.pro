@@ -1,6 +1,5 @@
 {title: Teach Your Children}
 {subtitle: Crosby stills nash young}
-{ipodid: 149220875791745532}
 [D] [G] [D] [Asus4] [A] [Asus2]
 
 [D]You, who are on the [G]road,

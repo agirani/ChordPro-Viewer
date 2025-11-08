@@ -1,6 +1,5 @@
 {title: Reminiscing}
 {subtitle: little river band}
-{ipodid: 3764040807048753794}
 
 {sot}
 e|--------1------1--5-5-3------|--------1------1--8-8-6------|

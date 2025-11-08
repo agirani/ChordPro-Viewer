@@ -1,6 +1,5 @@
 {title: Stardust}
 {subtitle: Hoagy Carmichael lyrics by Mitchell Parrish}
-{ipodid: 3764040807048748039}
 
 Sometimes, I [Am]wonder why
 I spend such lonely [B7]nights

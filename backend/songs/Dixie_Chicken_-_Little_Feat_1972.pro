@@ -1,6 +1,5 @@
 {title: Dixie Chicken}
 {subtitle: Little Feat 1972}
-{ipodid: 3764040807048753704}
 
 Dixie Chicken chords(for the acoustic guitar)
 Little Feat 1972 (Dixie Chicken) **

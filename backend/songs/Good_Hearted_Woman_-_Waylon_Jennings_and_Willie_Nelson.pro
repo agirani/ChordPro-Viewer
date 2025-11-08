@@ -1,6 +1,5 @@
 {title: Good Hearted Woman}
 {subtitle:  Waylon Jennings and Willie Nelson}
-{ipodid: 149220875791755739}
  
 [C]A long time forgotten are dreams that just [C7]fell by the [F]way
 The [G7]good life he promised ain't what she's living to[C]day

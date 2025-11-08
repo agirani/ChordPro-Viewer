@@ -3,7 +3,6 @@
 #
 {t:The Boxer}
 {st:Simon and Garfunkel}
-{ipodid: 149220875791753800}
 #
 [C]I am just a poor boy though my story's seldom [Am]told
 I have [G]squandered my resistance 

@@ -1,6 +1,5 @@
 {title: Leaves That Are Green}
 {subtitle: simon and garfunkel}
-{ipodid: 149220875791753761}
 
 {c:Capo IV}
  [C] [Am] [G] [G]

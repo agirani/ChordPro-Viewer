@@ -1,6 +1,5 @@
 {title: Wild Horses}
 {subtitle: jagger/richards rolling stones}
-{ipodid: 149220875791751516}
 
  [G] [Am7] [G] [Am7] [G]
 

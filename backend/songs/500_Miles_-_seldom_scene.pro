@@ -1,6 +1,5 @@
 {title: 500 Miles}
 {subtitle:  seldom scene}
-{ipodid:}
 
 [C]If you miss the train I'm [Am]on
 You will [Dm]know that I am [F]gone

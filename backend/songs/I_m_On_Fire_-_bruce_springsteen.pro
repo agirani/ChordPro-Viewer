@@ -1,6 +1,5 @@
 {title: I'm On Fire}
 {subtitle: bruce springsteen}
-{ipodid:}
  [E] [C#m] [E] [C#m]
 
 [E]Hey, little girl is your daddy home? 

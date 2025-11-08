@@ -1,6 +1,5 @@
 {title: Old Friends}
 {subtitle: simon and garfunkle}
-{ipodid: 149220875791753788}
 
  [Fmaj7] [Cmaj7] [Fmaj7] [Cmaj7]
 

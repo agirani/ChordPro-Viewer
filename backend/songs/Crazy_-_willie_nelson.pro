@@ -1,6 +1,5 @@
 {title: Crazy}
 {subtitle: willie nelson}
-{ipodid: 149220875791742788}
 
 {c:Each chord is half of a 12/8 measure (or a whole 6/8 measure)}
 

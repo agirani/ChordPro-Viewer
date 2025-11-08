@@ -1,6 +1,5 @@
 {title: Annie's Song}
 {subtitle: John Denver}
-{ipodid: 149220875791749123}
 {capo: 0}
 [C] [Csus4] [C] [Csus4] [C] [Csus4]
 

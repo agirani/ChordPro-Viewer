@@ -1,6 +1,5 @@
 {title: Biloxi}
 {subtitle: jesse winchester as done by jimmy buffet}
-{ipodid: 3764040807048752609}
 [A]Down around Biloxi
 Pretty girls are swimmin' in the [D] sea
 They all look like sisters in the [A] ocean

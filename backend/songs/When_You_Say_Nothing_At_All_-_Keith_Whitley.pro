@@ -1,6 +1,5 @@
 {title: When You Say Nothing At All}
 {subtitle: Keith Whitley}
-{ipodid:}
 
 {c:========= Allison Krause version =========}
 [G] [D] [C] [D] [G] [D] [C] [D]

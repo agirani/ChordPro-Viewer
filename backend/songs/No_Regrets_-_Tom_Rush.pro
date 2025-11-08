@@ -1,6 +1,5 @@
 {title: No Regrets}
 {subtitle: Tom Rush}
-{ipodid:}
 {c:capo 2 makes key B as on record}
  [A] [E] [A] [E] [A] [E] [A] [Asus] [A] [A] [Asus] [A]
 

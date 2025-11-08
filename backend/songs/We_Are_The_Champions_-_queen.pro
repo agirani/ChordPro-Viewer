@@ -1,6 +1,5 @@
 {title: We Are The Champions}
 {subtitle: queen}
-{ipodid: 3764040807048756208}
 
 I've paid my [Cm]dues [Gm7/C]
 Time after [Cm]time [Gm7/C]

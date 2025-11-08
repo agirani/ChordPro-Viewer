@@ -1,6 +1,5 @@
 {title: Cold Cold Heart}
 {subtitle: Hank Williams}
-{ipodid:3764040807048755209}
 
  [A7] [D]
 

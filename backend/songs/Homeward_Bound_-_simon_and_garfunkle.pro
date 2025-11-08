@@ -1,6 +1,5 @@
 {title: Homeward Bound}
 {subtitle: simon and garfunkle}
-{ipodid:}
 
 [C]sittin’ in the railway station, 
 got a [Em]ticket for my destination[Gm6].

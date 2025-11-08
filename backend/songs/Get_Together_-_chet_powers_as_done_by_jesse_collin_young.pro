@@ -1,6 +1,5 @@
 {title: Get Together}
 {subtitle: chet powers as done by jesse collin young}
-{ipodid:}
 
 [G]Love is but a song we sing
 Fear's the way we [F]die

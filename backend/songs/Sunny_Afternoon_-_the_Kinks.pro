@@ -37,7 +37,6 @@ In the [A7] summertime,  in the [Dm] summertime,
 In the [A7] summertime   in the [Dm] summertime,
 In the [A7] summertime  [Dm]
 
-{ipodid:}
 
 {tag: Music Jam}
 {tag: 1960s}

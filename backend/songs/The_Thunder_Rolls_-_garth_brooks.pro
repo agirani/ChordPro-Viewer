@@ -1,6 +1,5 @@
 {title: The Thunder Rolls}
 {subtitle: garth brooks}
-{ipodid: 149220875791747388}
 
 {c:Capo 5}
  [Am]

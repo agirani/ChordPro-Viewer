@@ -1,6 +1,5 @@
 {title: Summer Song}
 {subtitle: chad and jeremy}
-{ipodid: 149220875791745759}
 {c: repeat 4 chord progression }
 [G] [Em] [C] [D7]
 

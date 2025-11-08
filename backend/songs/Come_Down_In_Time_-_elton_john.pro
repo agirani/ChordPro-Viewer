@@ -1,6 +1,5 @@
 {title: Come Down In Time}
 {subtitle: elton john}
-{ipodid: 149220875791746789}
 
 {sot}
 Am7 * = 575555  Cmaj7 = x32000  Bm  = x24432            C  = x32010

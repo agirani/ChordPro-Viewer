@@ -1,6 +1,5 @@
 {title: Country Comfort}
 {subtitle: elton john}
-{ipodid:}
 {c:capo 2}
  [C] [F] [C] [F]
 

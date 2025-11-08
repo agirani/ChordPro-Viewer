@@ -1,6 +1,5 @@
 {title: The One I Love}
 {subtitle: R E M}
-{ipodid: 149220875791752494}
 
  [Em7]
 [Em]This one goes out [Dsus2]to the one I l[Em]ove  [Em7]

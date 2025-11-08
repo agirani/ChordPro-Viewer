@@ -1,7 +1,6 @@
 {title: Come Monday}
 
 {st:Jimmy Buffett}
-{ipodid:}
 {define Amaj7 base-fret 1 frets x 0 2 1 2 0}
 {define Dmaj7 base-fret 1 frets x x 0 2 2 2}
 {c:Play in G, capo 2nd fret}

@@ -1,6 +1,5 @@
 {title: Crazy Little Thing Called Love}
 {subtitle: queen}
-{ipodid: 149220875791752244}
  [D] [Dsus4] [D] [D] [Dsus4] [D] [D] [Dsus4] [D] [D] [Dsus4] [D]   
  
 [D]This thing called love I [G] just can't [C] handle [G] it    

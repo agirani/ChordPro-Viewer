@@ -1,6 +1,5 @@
 {title: Smile}
 {subtitle: Charlie Chaplin, John Turner & Geoffrey Parsons as done by Nat King Cole}
-{ipodid: 3764040807048753961}
 
 {sot}
 Capo 3rd fret

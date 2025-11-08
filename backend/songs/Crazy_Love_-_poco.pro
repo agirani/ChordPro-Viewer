@@ -1,6 +1,5 @@
 {title: Crazy Love}
 {subtitle: poco}
-{ipodid: 149220875791755115}
 {c:capo 3}
  [Fmaj7] [C]
 

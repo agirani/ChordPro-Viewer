@@ -1,6 +1,5 @@
 {title: Tecumseh Valley}
 {subtitle: Townes Van Zandt}
-{ipodid:}
 {c:capo 2}
 [D][C][G]
 

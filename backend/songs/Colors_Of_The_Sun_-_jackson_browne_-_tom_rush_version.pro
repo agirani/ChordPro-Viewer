@@ -1,6 +1,5 @@
 {title: Colors Of The Sun}
 {subtitle: jackson browne - tom rush version}
-{ipodid:}
 
 {c:CAPO 3}
 

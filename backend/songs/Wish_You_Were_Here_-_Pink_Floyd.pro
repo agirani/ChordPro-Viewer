@@ -1,6 +1,5 @@
 {title: Wish You Were Here}
 {subtitle: Pink Floyd}
-{ipodid:149220875791747266}
 
 {c:Intro:  }
           / [Em7] - - - - / - - - - / [G] - - - - / - - - - /

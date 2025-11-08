@@ -1,6 +1,5 @@
 {title: The River}
 {subtitle: garth brooks}
-{ipodid: 149220875791744559}
 
                           {c: Andrew Lowry (alowry@silver.ucs.indiana.edu})
 

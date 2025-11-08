@@ -1,6 +1,5 @@
 {title: Daniel}
 {subtitle: elton john}
-{ipodid: 149220875791752635}
 
  [C] [F] [G] [C]
 

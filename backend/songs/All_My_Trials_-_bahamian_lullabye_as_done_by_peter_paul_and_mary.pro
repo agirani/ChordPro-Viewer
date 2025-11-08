@@ -1,6 +1,5 @@
 {title: All My Trials}
 {subtitle: bahamian lullabye as done by peter, paul, and mary}
-{ipodid:}
 {c:Capo II}
 
  [C]

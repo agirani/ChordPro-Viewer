@@ -1,6 +1,5 @@
 {title: Jingle Bell Rock}
 {subtitle: Bobby Helms 1957 (Joseph Carleton Beal / James Ross Boothe)}
-{ipodid: 149220875791754519}
 
 [A]
 

@@ -1,6 +1,5 @@
 {title: Words}
 {subtitle: bee gees}
-{ipodid:149220875791748958}
  [G]
 [G]Smile an everlasting smile,
 A smile could bring you [A]near to me

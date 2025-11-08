@@ -1,7 +1,6 @@
 {title: Outbound Plane}
 {subtitle: Nanci Griffith and tom Russell}
 {Capo: 4}
-{ipodid:}
 
 {sot}
 E5      079900      B(4)    799800       A(9) 577600

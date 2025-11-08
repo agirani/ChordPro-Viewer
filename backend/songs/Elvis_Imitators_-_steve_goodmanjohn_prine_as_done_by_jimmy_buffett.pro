@@ -1,6 +1,5 @@
 {title: Elvis Imitators}
 {subtitle: steve goodman/john prine as done by jimmy buffett}
-{ipodid: 3764040807048752715}
 
 {c:N.C}  
 Well I [E]walk up to the mike and then I shake my hip

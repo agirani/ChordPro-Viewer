@@ -1,6 +1,5 @@
 {title: Hungry Heart}
 {subtitle: bruce springsteen}
-{ipodid: 149220875791744556}
 
 [Am7]    [Dm7]    [G]    
 [C]    [Am7]    [Dm7]    [G]    

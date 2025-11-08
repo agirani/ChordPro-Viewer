@@ -1,6 +1,5 @@
 {title: Both Sides Now}
 {subtitle: Joni Mitchell}
-{ipodid: 149220875791744868}
 
 [G] [Am7] [Em7] [Am7]
 

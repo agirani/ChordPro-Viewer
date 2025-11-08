@@ -1,6 +1,5 @@
 {title: You May Be Right}
 {subtitle: billy joel}
-{ipodid: 149220875791744197}
 {c:Intro Lick}
 {c:(Can be played by 2nd guitar or with pinky off A chord)}
 {sot}

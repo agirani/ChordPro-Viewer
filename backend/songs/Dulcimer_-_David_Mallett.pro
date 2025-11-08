@@ -1,6 +1,5 @@
 {title: Dulcimer}
 {subtitle: David Mallett}
-{ipodid:3764040807048749709}
 I'm [C] headin out of [F] New York [C] town on [G] some old number [C] nine
 [F]up north the [C] Hudson's wild and the [Am] sun begins to [G] shine
 [F]High noon, [C] high tide, [F] six string partner [C] by my side

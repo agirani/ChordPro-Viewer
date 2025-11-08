@@ -1,6 +1,5 @@
 {title:For Lovin' Me}
 {st:Gordon Lightfoot}
-{ipodid: 149220875791754490}
 That'[D7]s what you get for lovin' m[G]e.
 Th[D7]at's what you get for lovin' [Em]me.   [D]
 Wel[G]l everything you had is g[Em]one,

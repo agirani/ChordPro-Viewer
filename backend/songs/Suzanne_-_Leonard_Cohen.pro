@@ -1,7 +1,6 @@
 {title:Suzanne}
 {st:Leonard Cohen}
 {Capo: 3}
-{ipodid:}
 [G]Suzanne takes you down
 To her place by the river,
 You can [Am]hear the boats go by,

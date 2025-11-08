@@ -1,6 +1,5 @@
 {title: Comfortably Numb}
 {subtitle: pink floyd}
-{ipodid: 149220875791752085}
 
 [Bsus2]Hello? [Bm]
 Is there anybody [A]in there?

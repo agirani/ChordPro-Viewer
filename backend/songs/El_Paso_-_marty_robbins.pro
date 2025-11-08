@@ -1,7 +1,6 @@
 {title: El Paso}
 {subtitle: marty robbins}
 {Capo: 5}
-{ipodid: 149220875791750623}
 [D]Out in the West Texas [Em]town of El Paso
 [A7]I fell in love with a Mexican [D]girl.
 [D]Nighttime would find me in [Em]Rose's Cantina,

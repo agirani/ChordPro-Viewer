@@ -1,6 +1,5 @@
 {title: You Don't Know Me}
 {subtitle: as done by ray charles}
-{ipodid: 3764040807048750729}
 [G]You give your [C]hand to me.[CM7]...and then you [C6]say, 'Hell..[CM7]o.'
 And I can [F]hardly speak, [FM7]my heart is b[F6]eating s[F#dim]o.
 And [C]anyone can tell, [A7]you think you [Dm7]know me well[G7].

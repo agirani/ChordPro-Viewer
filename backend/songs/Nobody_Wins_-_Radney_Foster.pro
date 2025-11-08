@@ -1,7 +1,6 @@
 {title: Nobody Wins}
 {subtitle: Radney Foster}
 {c: Capo 5}
-{ipodid: 149220875791752585}
 [G]You say this ain't over yet
 [C]I've said things that [D]I'll regret
 [G]It won't be easy [G/F#]to for[Em]get

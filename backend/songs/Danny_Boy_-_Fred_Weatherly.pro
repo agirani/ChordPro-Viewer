@@ -1,6 +1,5 @@
 {title: Danny Boy}
 {subtitle: Fred Weatherly}
-{ipodid:}
 
 O Danny [C] Boy the [Em] pipes the pipes are [F] calling
 From glen to [C] glen and [Em] down the mountain [F] side [G]

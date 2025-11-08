@@ -1,6 +1,5 @@
 {title: Oh Atlanta}
 {subtitle: allison krause}
-{ipodid: 3764040807048753780}
 
 {sot}
 G  320003    C*  x32013

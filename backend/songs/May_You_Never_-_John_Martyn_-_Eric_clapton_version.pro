@@ -1,6 +1,5 @@
 {title: May You Never}
 {subtitle: John Martyn - Eric clapton version}
-{ipodid:}
 
 {c:** Capo on the 4th fret! **}
 

@@ -1,6 +1,5 @@
 {title: Black Water}
 {subtitle: doobie brothers}
-{ipodid: 149220875791746306}
 {c: D Am7 D Am7...}
 [D]Well, I [Am7]built me a [D]raft and she's [Am7]ready for float[D]in'
 [Am7]Ol' Missis[D]sippi, she's [Am7]callin' my [D]name

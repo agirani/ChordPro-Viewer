@@ -1,6 +1,5 @@
 {title: May You Never}
 {subtitle: john martyn}
-{ipodid: 149220875791747816}
 
 {soc}
 [A]And may [G/A]you [D]never lay your [Bm]head down

@@ -1,6 +1,5 @@
 {title: Yankee Lady}
 {subtitle: jesse winchester}
-{ipodid: 3764040807048752607}
  [A] [Asus4]
 {c:4x}
 

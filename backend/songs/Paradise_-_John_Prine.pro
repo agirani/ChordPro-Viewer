@@ -1,6 +1,5 @@
 {title: Paradise}
 {subtitle: John Prine}
-{ipodid: 3885476133688681460}
 
 When [D]I was a child my [G]family would [D]ramble 
 Down to Western Kentucky where my [A7]parents were [D]born 

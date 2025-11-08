@@ -1,6 +1,5 @@
 {title: I'm Sorry}
 {subtitle: john denver}
-{ipodid:}
 
  [C] [C/B] [Am] [G] [C] [C/B] [Am] [G]
 

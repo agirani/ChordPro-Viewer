@@ -1,6 +1,5 @@
 {t:Bird on the Wire}
 {st:Leonard Cohen}
-{ipodid: 149220875791749713}
 Like a b[A]ird on the w[E]ire, like a dr[A]unk in a midnight ch[D]oir
 I have tr[A]ied in my w[E]ay to be free [Asus4]              [A]
 Like a w[A]orm on a h[E]ook, like a kn[A]ight from some old-fashioned b[D]ook

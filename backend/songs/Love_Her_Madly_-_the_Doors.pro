@@ -1,6 +1,5 @@
 {title: Love Her Madly}
 {subtitle: the Doors}
-{ipodid: 149220875791747700}
 
 {sot}
 down stroke and 2 up strokes: Am    last up stroke: Am11

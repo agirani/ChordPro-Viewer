@@ -1,6 +1,5 @@
 {title: Into The Mystic}
 {subtitle: van morrison}
-{ipodid:}
 
   {c:   capo III}
 

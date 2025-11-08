@@ -1,6 +1,5 @@
 {title: Dreams}
 {subtitle: fleetwood mac}
-{ipodid: 149220875791755025}
 
 [F] [G]   {c:4x}
 

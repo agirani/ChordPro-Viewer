@@ -1,6 +1,5 @@
 {title: Carolina In My Mind}
 {subtitle: James Taylor}
-{ipodid: 149220875791748486}
 {c: capo:3}
 
 [C]In my mind I'm [F]going to Caro[G]lina

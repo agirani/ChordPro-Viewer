@@ -1,6 +1,5 @@
 {title: Space Oddity}
 {subtitle: david bowie}
-{ipodid: 3764040807048755062}
 
  [Fmaj7] [Em7] [Fmaj7] [Em7]
 

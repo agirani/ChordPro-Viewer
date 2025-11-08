@@ -1,6 +1,5 @@
 {title: Midnight Moonlight}
 {subtitle: Peter Rowan Jery Garcia of old and in the way}
-{ipodid: 149220875791751510}
 {c:capo 2}
 [G]If you ever feel lonesome
 [D]And your down in San Antone

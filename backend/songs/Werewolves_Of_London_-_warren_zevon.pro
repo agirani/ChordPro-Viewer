@@ -1,6 +1,5 @@
 {title: Werewolves Of London}
 {subtitle: warren zevon}
-{ipodid: 3764040807048750313}
  [D] [D] [C] [C] [G] [G] [G] [G]
 {c:4x}
 

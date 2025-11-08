@@ -1,6 +1,5 @@
 {title: Walking My Baby Back Home}
 {subtitle: alert/turk as done by James Taylor}
-{ipodid: 149220875791748508}
 
 {sot}
 Chords

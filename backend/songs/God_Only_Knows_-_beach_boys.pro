@@ -1,6 +1,5 @@
 {title: God Only Knows}
 {subtitle: beach boys}
-{ipodid: 3764040807048753071}
 {c:Capo: 2}
 
 {sot}
