@@ -1,8 +1,13 @@
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs').promises;
-const fsSync = require('fs');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import { promises as fs } from 'fs';
+import fsSync from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// ES Module equivalents for __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,8 +17,8 @@ app.use(cors());
 app.use(express.json());
 
 // Configuration
-const USERS_FILE = 'users.json';
-const CHORDPRO_DIR = 'chordpro_files';
+const USERS_FILE = path.join(__dirname, 'users.json');
+const CHORDPRO_DIR = path.join(__dirname, 'chordpro_files');
 
 // In-memory users cache
 let users = {};
