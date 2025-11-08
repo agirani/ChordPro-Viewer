@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>ChordPro Viewer</title>
+
+  <!-- ▣ Styles: page layout, output panel, modal, buttons -->
   <style>
     body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
     #output {
-	   flex: 1;
+      flex: 1;
       height: 90vh;
       font-family: monospace;
       margin-top: 5px;
       column-gap: 10px;
-  	   overflow-y: auto;         /* allow vertical scroll only within this area */
-  	   padding: 1rem;
-       box-sizing: border-box;
-       line-height: 1.5em;
-  	   scroll-behavior: smooth;  /* makes manual scrolling smooth too */
+      overflow-y: auto;         /* allow vertical scroll only within this area */
+      padding: 1rem;
+      box-sizing: border-box;
+      line-height: 1.5em;
+      scroll-behavior: smooth;  /* makes manual scrolling smooth too */
     }
+
+    /* Top control bar */
     #container {
       display: flex;
       align-items: center;
       gap: 8px;
       flex-direction: row;
-/*      height: 10vh; */
     }
+
+    /* Scroll control buttons (hidden in multi-column) */
     .scroll-buttons {
       display: flex;
       gap: 0.5rem;
@@ -38,11 +43,9 @@
       border-radius: 6px;
       cursor: pointer;
     }
+    .scroll-buttons button:hover { background: #005ecb; }
 
-    .scroll-buttons button:hover {
-      background: #005ecb;
-    }
-
+    /* File selection button */
     .file-btn {
       font-size: 15px;
       padding: 8px 16px;
@@ -54,11 +57,11 @@
     }
     .file-btn:hover { background: #0d47a1; }
 
-    /* Modal Styling */
+    /* Modal (server-side file browser) */
     .modal {
       display: none;
       position: fixed;
-      z-index: 10;	
+      z-index: 10;
       left: 0;
       top: 0;
       width: 100%;
@@ -66,12 +69,17 @@
       overflow: auto;
       background-color: rgba(0,0,0,0.4);
     }
-	.chord-sheet-table td {
-	   padding: 0;                /* remove inner padding */
-	   margin: 0;                 /* not usually applied to td, but safe */
-	   white-space: nowrap;   	/* prevent line breaks inside cells */
-       text-overflow: ellipsis; /* optional: show "..." if clipped */
-	   overflow: hidden;      /* optional: hide overflow if too long */	}
+
+    /* small-table cell rules for chord formatting */
+    .chord-sheet-table td {
+      padding: 0;
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    /* Modal content card */
     .modal-content {
       background-color: #fff;
       margin: 5% auto;
@@ -100,105 +108,83 @@
       border: 1px solid #ddd;
       border-radius: 6px;
     }
-
     #fileList li {
       padding: 6px 8px;
       border-bottom: 1px solid #eee;
       cursor: pointer;
     }
+    #fileList li:hover { background: #e3f2fd; }
 
-    #fileList li:hover {
-      background: #e3f2fd;
+    input[type="range"], input[type="number"] { vertical-align: middle; }
+
+    /* Minor typography fixes */
+    h1, h2 { margin: 0; font-size: 15px; }
+
+    .title, .song-title {
+      column-span: all;
+      font-size: 15px; /* Smaller heading */
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    .subtitle, .song-title {
+      column-span: all;
+      font-size: 12px;
+      font-style: italic;
+      margin-bottom: 5px;
+      text-align: center;
+      color: #555;
     }
 
-    input[type="range"], input[type="number"] {
-      vertical-align: middle;
-    }
-    h1, h2 { margin: 0; font_size: 15px;}
-	.title, .song-title {
-		column-span: all;
-  		font-size: 15px;       /* Smaller than typical headline */
-  		font-weight: bold;
-  		margin-bottom: 5px;
-  		text-align: center;
-	}
-
-	.subtitle, .song-title {
-		column-span: all;
-  		font-size: 12px;       /* Smaller subtitle */
-  		font-style: italic;
-  		margin-bottom: 5px;
-  		text-align: center;
-  		color: #555;
-	}
+    /* Chord sheet container visuals */
     .chord-sheet {
-      /* column-count: 3; / * Change to 2, 3 or more for more columns */
       column-gap: 10px;
-      font-family: Courier New; 
+      font-family: Courier New;
       color: #333;
       background-color: #f9f9f9;
       padding: 5px;
-   	  border-right: 2px solid #ccc; /* light gray divider */
+      border-right: 2px solid #ccc;
       border-radius: 8px;
       margin: auto;
     }
-	.chord-sheet-table td {
-	   padding: 0;                /* remove inner padding */
-	   margin: 0;                 /* not usually applied to td, but safe */
-	   white-space: nowrap;   	/* prevent line breaks inside cells */
-       text-overflow: ellipsis; /* optional: show "..." if clipped */
-	   overflow: hidden;      /* optional: hide overflow if too long */	
-	}
-    .chord {
-      color: #d32f2f; /* red for chords */
-      font-weight: bold;
-      margin-right: 5px;
-  	  line-height: .5;
-    }
-    .comment {
-      color: #0000ff; /* blue for comments */
-      /* font-weight: bold; */
-      margin-right: 5px;
-  	  line-height: .5;
-    }
 
-    .lyrics {
-      color: #000; /* black for lyrics */
-	  font-weight: bold;
-	  line-height: 1.0;
-    }
-	.paragraph {
-		margin-bottom: 20px; /* Adds space below the div */
-	}
-    .line {
-      margin-bottom: 4px;
-    }
-	.line:empty {
-  		margin-bottom: 20px; /* Adjust spacing for blank lines */
-	}
-	br {
-  		line-height: 20em; /* Increase spacing between lines */
-	}
-	.blank-line {
-  		height: 40px; /* Adjust this to control spacing */
-	}
+    /* Inline chord/lyrics styling */
+    .chord { color: #d32f2f; font-weight: bold; margin-right: 5px; line-height: .5; }
+    .comment { color: #0000ff; margin-right: 5px; line-height: .5; }
+    .lyrics { color: #000; font-weight: bold; line-height: 1.0; }
+
+    /* Spacing helpers */
+    .paragraph { margin-bottom: 20px; }
+    .line { margin-bottom: 4px; }
+    .line:empty { margin-bottom: 20px; }
+    br { line-height: 20em; }
+    .blank-line { height: 40px; }
   </style>
+
+  <!-- Keep your bundle reference as before (user-provided) -->
   <script src="bundle.js"></script>
 </head>
+
 <body>
+  <!-- ▣ Top control bar: file selector, transpose, font, columns, open-in-new-tab -->
   <div id="container">
     <button class="file-btn" onclick="openFileBrowser()">Select File</button>
     <label>&nbsp;&nbsp;Transpose&nbsp;&nbsp;</label>
     <input type="range" id="transposeSlider" min="-6" max="6" value="0">
     <span id="transposeValue">0</span>
+
     <label> &nbsp;&nbsp;Font size:&nbsp;  </label>
     <input type="range" min="8" max="36" value="12" id="fontSlider">
     <span id="sizeValue">12</span>
+
     <label> &nbsp;&nbsp;Columns:&nbsp;  </label>
     <input type="number" id="columnCount" min="1" max="4" value="1">
+
     <label>&nbsp;&nbsp;&nbsp;</label>
     <button onclick="renderToNewTab()">Open in New Tab</button>
   </div>
+
+  <!-- ▣ Scroll controls (visible only in single-column mode) -->
   <div class="scroll-buttons" id="scrollControls" style="display:none;">
     <label>Scrolling controls</label>
     <button onclick="startAutoScroll(5)">5 sec/line (slow)</button>
@@ -206,9 +192,11 @@
     <button onclick="startAutoScroll(1)">1 sec/line (fast)</button>
     <button onclick="stopAutoScroll()">Stop</button>
   </div>
+
+  <!-- ▣ Main rendered output area (ChordPro -> HTML) -->
   <div id="output"></div>
 
-  <!-- Modal for Server File Browser -->
+  <!-- ▣ Modal for server-side file browser -->
   <div id="fileModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -218,27 +206,41 @@
     </div>
   </div>
 
+  <!-- ▣ Script: application logic (concise section comments only) -->
   <script>
+    // -----------------------------
+    // ▣ State variables
+    // -----------------------------
+    let chordProText = "";   // raw loaded ChordPro text
+    let file = "";           // current file metadata (name)
+    let colcount = 1;        // number of columns for output
+    let fontsize = 12;       // font size (px)
+    let currentPath = "";    // server path from file browser
 
-    let chordProText = "";
-    let file = "";
-    let colcount = 1;
-    let fontsize = 12;
-    let currentPath = "";
-
+    // -----------------------------
+    // ▣ DOM references and controls
+    // -----------------------------
     const fontSlider = document.getElementById("fontSlider");
+    const slider = document.getElementById("transposeSlider");
+    const valueDisplay = document.getElementById("transposeValue");
+    const output = document.getElementById("output");
+
+    // Update font size live from slider
     fontSlider.addEventListener("input", () => {
       fontsize = fontSlider.value;
       document.getElementById("output").style.fontSize = fontsize + "px";
       document.getElementById("sizeValue").textContent = fontsize;
     });
 
+    // -----------------------------
+    // ▣ Column count handler
+    // -----------------------------
     document.getElementById("columnCount").addEventListener("change", (e) => {
       colcount = parseInt(e.target.value, 10) || 1;
-      const output = document.getElementById("output");
       const scrollButtons = document.getElementById("scrollControls");
-      if (colcount ===1) {
-        // Reset multi-column layout completely
+
+      if (colcount === 1) {
+        // single-column: enable vertical scrolling and show controls
         output.style.removeProperty("column-count");
         output.style.removeProperty("column-gap");
         output.style.whiteSpace = "normal";
@@ -246,39 +248,42 @@
         output.style.height = "90vh";
         scrollButtons.style.display = "block";
       } else {
+        // multi-column: enable column layout and hide scroll controls
         output.style.columnCount = colcount;
         output.style.columnGap = "2rem";
         output.style.whiteSpace = "normal";
         output.style.overflowY = "auto";
         output.style.overflowX = "hidden";
         scrollButtons.style.display = "none";
-        stopAutoScroll (); 
+        stopAutoScroll();
         output.scrollTop = 0; // reset position
       }
     });
 
-    const slider = document.getElementById("transposeSlider");
-    const valueDisplay = document.getElementById("transposeValue");
+    // -----------------------------
+    // ▣ Transpose slider handler
+    // -----------------------------
     slider.addEventListener("input", () => {
       valueDisplay.textContent = slider.value;
       render();
     });
 
-
-    const output = document.getElementById("output");
-
+    // -----------------------------
+    // ▣ Auto-scroll logic (main window)
+    // -----------------------------
     let scrollTimer = null;
     let isScrolling = false;
 
     function startAutoScroll(secondsPerLine) {
+      // stop any existing scroll then start new one
       stopAutoScroll();
 
-      const lineHeight = fontsize; // px per line, adjust if font size differs
-      const interval = secondsPerLine * 1000; // convert to ms
+      const lineHeight = fontsize; // px per line (approx)
+      const interval = secondsPerLine * 1000;
       if (isScrolling) return;
       isScrolling = true;
       scrollTimer = setInterval(() => {
-        // ✅ Stop when we reach the bottom
+        // stop when bottom reached
         if (output.scrollTop + output.clientHeight >= output.scrollHeight) {
           stopAutoScroll();
           return;
@@ -295,48 +300,55 @@
       isScrolling = false;
     }
 
-
+    // -----------------------------
+    // ▣ Render function: parse & format ChordPro into HTML
+    // -----------------------------
     async function render() {
-	  try {
-      	const delta = slider.value;
-      	// Parse the song
-		const parser = new ChordSheetJS.ChordProParser();
-      	let song = parser.parse(chordProText);
-      	// transpose if needed
-		if (delta != 0) song = song.transpose(delta);
-      	// format the ouput
-		const formatter = new ChordSheetJS.HtmlTableFormatter();
-      	document.getElementById("output").innerHTML = formatter.format(song);
-	  } catch (err) {
-	    console.error("ChordPro render error:", err);
-	    const output = document.getElementById("output");
-	    output.innerHTML = `
-	      <div style="color:red; font-weight:bold;">
-	        ⚠️ Error parsing ChordPro file.<br>
-	        ${err.message || "Unknown error"}
-	      </div>
-	      <pre style="
-	        background:#f4f4f4;
-	        border:1px solid #ccc;
-	        padding:10px;
-	        font-family:monospace;
-	        white-space:pre-wrap;
-	        color:#333;
-	        max-height:400px;
-	        overflow:auto;
-	      ">${chordProText.replace(/[<>]/g, (c) => c === '<' ? '&lt;' : '&gt;')}</pre>
-	    `;
-	  }
+      try {
+        const delta = slider.value;
+        // Use ChordSheetJS to parse and format
+        const parser = new ChordSheetJS.ChordProParser();
+        let song = parser.parse(chordProText);
+        if (delta != 0) song = song.transpose(delta);
+        const formatter = new ChordSheetJS.HtmlTableFormatter();
+        document.getElementById("output").innerHTML = formatter.format(song);
+      } catch (err) {
+        // display parsing error with safe HTML encoding
+        console.error("ChordPro render error:", err);
+        const outputElem = document.getElementById("output");
+        outputElem.innerHTML = `
+          <div style="color:red; font-weight:bold;">
+            ⚠️ Error parsing ChordPro file.<br>
+            ${err.message || "Unknown error"}
+          </div>
+          <pre style="
+            background:#f4f4f4;
+            border:1px solid #ccc;
+            padding:10px;
+            font-family:monospace;
+            white-space:pre-wrap;
+            color:#333;
+            max-height:400px;
+            overflow:auto;
+          ">${chordProText.replace(/[<>]/g, (c) => c === '<' ? '&lt;' : '&gt;')}</pre>
+        `;
+      }
+
+      // Ensure scroll control visibility matches column mode
       const scrollButtons = document.getElementById("scrollControls");
-      if (colcount ===1) {
+      if (colcount === 1) {
         scrollButtons.style.display = "block";
       } else {
         scrollButtons.style.display = "none";
-        stopAutoScroll (); 
+        stopAutoScroll();
       }
     }
 
+    // -----------------------------
+    // ▣ Server file browser: load file list & file content
+    // -----------------------------
     async function loadDirectory(path = "") {
+      // fetch list from backend (ensure CORS/backend availability)
       const res = await fetch(`https://chordpro-viewer.onrender.com/files`);
       const data = await res.json();
       const fileList = document.getElementById("fileList");
@@ -365,6 +377,7 @@
     }
 
     async function loadFile(path) {
+      // fetch individual file content and trigger render
       const res = await fetch(`https://chordpro-viewer.onrender.com/file?path=${encodeURIComponent(path)}`);
       chordProText = await res.text();
       file = { name: path };
@@ -372,6 +385,9 @@
       closeModal();
     }
 
+    // -----------------------------
+    // ▣ Utility: Filter file list, open/close modal
+    // -----------------------------
     function filterList() {
       const query = document.getElementById("searchBox").value.toLowerCase();
       document.querySelectorAll("#fileList li").forEach(li => {
@@ -380,8 +396,8 @@
     }
 
     function openFileBrowser() {
-  	  if (document.getElementById("searchBox"))
-		 document.getElementById("searchBox").value = ""; // Clear any previous search
+      if (document.getElementById("searchBox"))
+        document.getElementById("searchBox").value = ""; // Clear any previous search
       document.getElementById("fileModal").style.display = "block";
       loadDirectory();
     }
@@ -390,195 +406,118 @@
       document.getElementById("fileModal").style.display = "none";
     }
 
+    // -----------------------------
+    // ▣ New-tab rendering (fixed)
+    // Build the new tab's DOM programmatically (no document.write),
+    // attach scroll buttons and behavior so it behaves exactly like the main window.
+    // -----------------------------
     function renderToNewTab() {
-      if (!file) return;
+      if (!file || !chordProText) return; // guard
       const delta = slider.value;
       const parser = new ChordSheetJS.ChordProParser();
       let song = parser.parse(chordProText);
       if (delta != 0) song = song.transpose(delta);
       const formatter = new ChordSheetJS.HtmlTableFormatter();
       const rendered = formatter.format(song);
-      const newWin = window.open("", "_blank");
-      newWin.document.write(`
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <title>${file.name}</title>
-			  <style>
-			    body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
-               #output {
-                 font-family: monospace;
-                 margin-top: 5px;
-                 column-gap: 10px;
-  		          overflow-y: auto;         /* allow vertical scroll only within this area */
-  		          padding: 1rem;
-  		          scroll-behavior: smooth;  /* makes manual scrolling smooth too */
-               }
-               .scroll-buttons {
-                 display: flex;
-                 gap: 0.5rem;
-                 margin-top: 0.5rem;
-               }
 
-               .scroll-buttons button {
-                 padding: 0.5rem 1rem;
-                 border: none;
-                 background: #007aff;
-                color: white;
-                border-radius: 6px;
-                cursor: pointer;
-               }
-			
-			    .file-btn {
-			      font-size: 15px;
-			      padding: 8px 16px;
-			      border-radius: 8px;
-			      background: #1976d2;
-			      color: white;
-			      border: none;
-			      cursor: pointer;
-			    }
-			    .file-btn:hover { background: #0d47a1; }
-			
-			    /* Modal Styling */
-			    .modal {
-			      display: none;
-			      position: fixed;
-			      z-index: 10;	.chord-sheet-table td {
-				   padding: 0;                /* remove inner padding */
-				   margin: 0;                 /* not usually applied to td, but safe */
-				   white-space: nowrap;   	/* prevent line breaks inside cells */
-			       text-overflow: ellipsis; /* optional: show "..." if clipped */
-				   overflow: hidden;      /* optional: hide overflow if too long */	}
-			
-			      left: 0;
-			      top: 0;
-			      width: 100%;
-			      height: 100%;
-			      overflow: auto;
-			      background-color: rgba(0,0,0,0.4);
-			    }
-			
-			    .modal-content {
-			      background-color: #fff;
-			      margin: 5% auto;
-			      padding: 20px;
-			      border: 1px solid #888;
-			      width: 80%;
-			      max-width: 600px;
-			      border-radius: 10px;
-			    }
-			
-			    .close {
-			      color: #aaa;
-			      float: right;
-			      font-size: 28px;
-			      font-weight: bold;
-			      cursor: pointer;
-			    }
-			    .close:hover { color: black; }
-			
-			    #fileList {
-			      list-style: none;
-			      padding: 0;
-			      margin-top: 10px;
-			      max-height: 300px;
-			      overflow-y: auto;
-			      border: 1px solid #ddd;
-			      border-radius: 6px;
-			    }
-			
-			    #fileList li {
-			      padding: 6px 8px;
-			      border-bottom: 1px solid #eee;
-			      cursor: pointer;
-			    }
-			
-			    #fileList li:hover {
-			      background: #e3f2fd;
-			    }
-			
-			    input[type="range"], input[type="number"] {
-			      vertical-align: middle;
-			    }
-			    h1, h2 { margin: 0; font_size: 15px;}
-				.title, .song-title {
-					column-span: all;
-			  		font-size: 15px;       /* Smaller than typical headline */
-			  		font-weight: bold;
-			  		margin-bottom: 5px;
-			  		text-align: center;
-				}
-			
-				.subtitle, .song-title {
-					column-span: all;
-			  		font-size: 12px;       /* Smaller subtitle */
-			  		font-style: italic;
-			  		margin-bottom: 5px;
-			  		text-align: center;
-			  		color: #555;
-				}
-			    .chord-sheet {
-			      /* column-count: 3; / * Change to 2, 3 or more for more columns */
-			      column-gap: 10px;
-			      font-family: Courier New; 
-			      color: #333;
-			      background-color: #f9f9f9;
-			      padding: 5px;
-			   	  border-right: 2px solid #ccc; /* light gray divider */
-			      border-radius: 8px;
-			      margin: auto;
-			    }
-				.chord-sheet-table td {
-				   padding: 0;                /* remove inner padding */
-				   margin: 0;                 /* not usually applied to td, but safe */
-				   white-space: nowrap;   	/* prevent line breaks inside cells */
-			       text-overflow: ellipsis; /* optional: show "..." if clipped */
-				   overflow: hidden;      /* optional: hide overflow if too long */	
-				}
-			    .chord {
-			      color: #d32f2f; /* red for chords */
-			      font-weight: bold;
-			      margin-right: 5px;
-			  	  line-height: .5;
-			    }
-			    .comment {
-			      color: #0000ff; /* blue for comments */
-			      /* font-weight: bold; */
-			      margin-right: 5px;
-			  	  line-height: .5;
-			    }
-			
-			    .lyrics {
-			      color: #000; /* black for lyrics */
-				  font-weight: bold;
-				  line-height: 1.0;
-			    }
-				.paragraph {
-					margin-bottom: 20px; /* Adds space below the div */
-				}
-			    .line {
-			      margin-bottom: 4px;
-			    }
-				.line:empty {
-			  		margin-bottom: 20px; /* Adjust spacing for blank lines */
-				}
-				br {
-			  		line-height: 20em; /* Increase spacing between lines */
-				}
-				.blank-line {
-			  		height: 40px; /* Adjust this to control spacing */
-				}
-			  </style>
-          </head>
-          <body style="font-family:monospace; font-size:${fontsize}px;">
-          <div style="column-count:${colcount};">${rendered}</div>
-          </body>
-        </html>
-      `);
-      newWin.document.close();
+      // open a blank new window and safely construct its DOM
+      const newWin = window.open("", "_blank");
+      const doc = newWin.document;
+      doc.title = file.name;
+
+      // ----- head/styles -----
+      const style = doc.createElement("style");
+      style.textContent = `
+        body { font-family: monospace; padding: 10px; background: #f9f9f9; font-size: ${fontsize}px; }
+        .scroll-buttons { display: flex; gap: 0.5rem; margin-bottom: 10px; }
+        .scroll-buttons button { padding: 0.5rem 1rem; border: none; background: #007aff; color: white; border-radius: 6px; cursor: pointer; }
+        .scroll-buttons button:hover { background: #005ecb; }
+        #output {
+            ${colcount > 1 ? `column-count: ${colcount}; column-gap: 2rem;` : ''}
+            column-gap: 2rem; 
+            overflow-y: auto; 
+            height: 90vh; 
+            padding: 1rem; 
+            scroll-behavior: smooth; 
+        }
+      `;
+      doc.head.appendChild(style);
+
+      // ----- scroll control buttons -----
+      const scrollDiv = doc.createElement("div");
+      scrollDiv.className = "scroll-buttons";
+      // create 3 speed buttons + stop
+      const btnSlow = doc.createElement("button"); btnSlow.textContent = "5 sec/line (slow)";
+      const btnMed  = doc.createElement("button"); btnMed.textContent = "2 sec/line (medium)";
+      const btnFast = doc.createElement("button"); btnFast.textContent = "1 sec/line (fast)";
+      const btnStop = doc.createElement("button"); btnStop.textContent = "Stop";
+      scrollDiv.appendChild(btnSlow);
+      scrollDiv.appendChild(btnMed);
+      scrollDiv.appendChild(btnFast);
+      scrollDiv.appendChild(btnStop);
+
+      // hide the scroll controls if multi-column in new tab
+      if (colcount !== 1) scrollDiv.style.display = "none";
+
+      doc.body.appendChild(scrollDiv);
+
+      // ----- content/output -----
+      const outputDiv = doc.createElement("div");
+      outputDiv.id = "output";
+      outputDiv.innerHTML = rendered;
+      doc.body.appendChild(outputDiv);
+
+      // ----- scrolling logic in new tab (mirrors main window logic) -----
+      // local timers/flags so new tab is independent
+      let newScrollTimer = null;
+      let newIsScrolling = false;
+
+      function newStartAutoScroll(secondsPerLine) {
+        // same behavior as main window: stop existing then start
+        newStopAutoScroll();
+        const lineHeight = fontsize; // mirror main window's unit
+        const interval = secondsPerLine * 1000;
+        if (newIsScrolling) return;
+        newIsScrolling = true;
+        newScrollTimer = setInterval(() => {
+          if (outputDiv.scrollTop + outputDiv.clientHeight >= outputDiv.scrollHeight) {
+            newStopAutoScroll();
+            return;
+          }
+          outputDiv.scrollTop += lineHeight;
+        }, interval);
+      }
+
+      function newStopAutoScroll() {
+        if (newScrollTimer) {
+          clearInterval(newScrollTimer);
+          newScrollTimer = null;
+        }
+        newIsScrolling = false;
+      }
+
+      // ----- wire up buttons after functions exist (reliable) -----
+      btnSlow.addEventListener("click", () => newStartAutoScroll(5));
+      btnMed.addEventListener("click",  () => newStartAutoScroll(2));
+      btnFast.addEventListener("click", () => newStartAutoScroll(1));
+      btnStop.addEventListener("click",  newStopAutoScroll);
+
+      // optional: expose simple helpers for console debugging in new tab
+      // (so you can call newWin.newStartAutoScroll(2) from devtools if desired)
+      try {
+        newWin.newStartAutoScroll = newStartAutoScroll;
+        newWin.newStopAutoScroll = newStopAutoScroll;
+      } catch (e) {
+        // ignore cross-origin or other assignment errors
+      }
+
+      // Finally, focus the new window
+      newWin.focus();
     }
 
+    // -----------------------------
+    // ▣ Click outside modal to close
+    // -----------------------------
     window.addEventListener("click", (e) => {
       const modal = document.getElementById("fileModal");
       if (e.target == modal) closeModal();
