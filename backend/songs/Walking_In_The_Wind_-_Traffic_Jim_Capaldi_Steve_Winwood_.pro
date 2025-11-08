@@ -14,6 +14,12 @@ Then you would know what it is I am getting [A]at
 But there again your head's got nothing [D]in it
 By the way you left without your [A]hat
 
+Bm]I'm walking in the wind [E]looking at the sky 
+[Bm]Hanging on a breeze and wondering [F]why, wh[A]y
+
+ [A] [D]
+{c:2x}
+
 [A]Your old man's headed for the final pay-[D]off
 The joker that you got is fading [A]too
 And all the sharks that come around for the rip-[D]off 

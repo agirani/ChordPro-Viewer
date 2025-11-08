@@ -1,6 +1,7 @@
 {title: Sara Smile}
 {subtitle: hall and oates}
 
+{sot}
 Chords]
 Bb/C       x 3(3)3 3 x
 B/C#       x 4(4)4 4 x
@@ -11,82 +12,47 @@ C          x 3 5 5 5 3
 C#dim7     x 4 5 4 3 0
 Eb7        x 6 8 6 8 6
 Dm7*       x 5 7 5 6 5
+{eot}
 
-Note: between Gm7 and Bb/C of the intro/chorus/outro
-      play the single notes A and Bb (5th string, 0 and 1)
+{c:Note: between Gm7 and Bb/C of the intro/chorus/outro}
+{c:      play the single notes A and Bb (5th string, 0 and 1)}
 
+ [Dm7] [Am7] [Gm7] [Bb/C] [B/C#]
+ [Dm7] [Am7] [Gm7] [Bb/C]
 
-[Intro]
-Dm7   Am7   Gm7   Bb/C   B/C#
-Dm7   Am7   Gm7   Bb/C
+[Dm7] Baby hair[C6]  with a woman's eyes
+[Bbmaj7] I can feel you're [G]watching in the [A]night
+[Dm7] All alone with me [C6]and we're waiting for the s[Bbmaj7]unlight [G] [A]
 
-
-[Verse]
-Dm7       C6
- Baby hair  with a woman's eyes
-Bbmaj7             G               A
- I can feel you're watching in the night
-Dm7                C6                         Bbmaj7  G  A
- All alone with me and we're waiting for the sunlight
-
-
-[Pre-Chorus]
-Bb      C        C#dim7     Dm7
- When I feel cold, you warm me
+[Bb] When I [C]feel cold[C#dim7], you warm [Dm7]me
            Bb              C                Eb7  Dm7*
 And when I feel I can't go on, you come and hold me
      Gm7    N.C.
 It's you... And me forever
 
+Sara [Dm7]Smile [Am7] [Gm7] [Bb/C] [B/C#]
+Oh, won't you [Dm7]smile a while for m[Am7]e Sara [Gm7] [Bb/C]
 
-[Chorus]
-     Dm7   Am7   Gm7   Bb/C   B/C#
-Sara Smile
-              Dm7                Am7     Gm7   Bb/C
-Oh, won't you smile a while for me Sara
+[Dm7] If you feel like leaving[C6]  you know you can go
+[Bbmaj7] But why don't you stay until to[G]morr[A]ow?
+[Dm7] If you want to be free[C6], you know,[Bbmaj7] all you got to do is [G]say [A]so
 
-
-[Verse]
-Dm7                      C6
- If you feel like leaving  you know you can go
-Bbmaj7                          G   A
- But why don't you stay until tomorrow?
-Dm7                    C6         Bbmaj7                G   A
- If you want to be free, you know, all you got to do is say so
-
-
-[Pre-Chorus]
-Bb           C        C#dim7      Dm7
-And when you feel cold, I'll warm you
+[Bb]And when you [C]feel cold[C#dim7], I'll warm [Dm7]you
              Bb                C                Eb7   Dm7*
 And when you feel you can't go on, I'll come and hold you
      Gm7    N.C.
 It's you... And me forever
 
+Sara [Dm7]Smile [Am7] [Gm7] [Bb/C] [B/C#]
+Oh, won't you [Dm7]smile a while for m[Am7]e Sara [Gm7] [Bb/C]
+Sara [Dm7]smile [Am7] [Gm7] [Bb/C] [B/C#]
+Oh, won't you [Dm7]smile awhile, Sara [Am7] [Gm7] [Bb/C]
 
-[Chorus]
-     Dm7   Am7   Gm7   Bb/C   B/C#
-Sara Smile
-              Dm7                Am7     Gm7   Bb/C
-Oh, won't you smile a while for me Sara
-     Dm7   Am7   Gm7   Bb/C   B/C#
-Sara smile
-              Dm7                Am7     Gm7   Bb/C
-Oh, won't you smile awhile, Sara
+[Dm7]Smile [Am7]awhile [Gm7] [Bb/C] [B/C#]
+Oh, won't you [Dm7]smile awhile for me[Am7], Sara [Gm7] [Bb/C]
+Oh,[Dm7] smile [Am7]awhile  don't you laugh[Gm7], Sara [Bb/C] [B/C#]
+[Dm7] Thank you for[Am7] making me [Gm7]feel like a man not [Bb/C]keeping me crazy
+crazy,[Dm7] smile [Am7]awhile [Gm7] [Bb/C] [B/C#]
+[Dm7]Smile [Am7] [Gm7] [Bb/C]
 
-
-[Outro]
-Dm7   Am7   Gm7   Bb/C   B/C#
-Smile awhile
-              Dm7                Am7     Gm7   Bb/C
-Oh, won't you smile awhile for me, Sara
-   Dm7    Am7                    Gm7   Bb/C   B/C#
-Oh, smile awhile  don't you laugh, Sara
-Dm7           Am7        Gm7                 Bb/C
- Thank you for making me feel like a man not keeping me crazy
-      Dm7    Am7   Gm7   Bb/C   B/C#
-crazy, smile awhile
-Dm7  Am7   Gm7   Bb/C
-Smile
-
-(repeat and fade)
+{c:(repeat and fade)}

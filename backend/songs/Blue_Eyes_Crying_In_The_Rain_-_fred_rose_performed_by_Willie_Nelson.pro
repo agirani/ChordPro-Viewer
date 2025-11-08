@@ -12,8 +12,7 @@ I [G7]knew we'd never meet [C]again [C7]
 [C]Through the ages I'll remember
 [G7]Blue eyes crying in the [C]rain
  
- 
-Now my hair has turned to silver
+[C]Now my hair has turned to silver
 [G7]All my life I've love in [C]vain
  
 I can see her star in heaven
