@@ -1,6 +1,6 @@
 {title: 500 Miles}
 {subtitle: Peter, Paul & Mary}
-{ipodid:} 
+
 If you [D]miss the train I'm [Bm]on, you will [Em]know that I am gone 
 You can hear the whistle [A]blow a hundred [Em]miles, 
 A hundred [D]miles, a hundred [Bm]miles, a hundred [Em]miles, a hundred miles, 
