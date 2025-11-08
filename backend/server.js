@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Configuration
 const USERS_FILE = path.join(__dirname, 'users.json');
-const CHORDPRO_DIR = path.join(__dirname, 'chordpro_files');
+const CHORDPRO_DIR = path.join(__dirname, 'songs');
 
 // In-memory users cache
 let users = {};
