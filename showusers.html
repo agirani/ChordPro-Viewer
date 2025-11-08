@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChordPro Users</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      margin: 0;
+    }
+    h1 {
+      color: #4ec9b0;
+      margin-bottom: 20px;
+    }
+    #status {
+      color: #ce9178;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 16px;
+      background: #0e639c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: monospace;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    button:hover {
+      background: #1177bb;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #252526;
+      border: 1px solid #3e3e42;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #3e3e42;
+    }
+    th {
+      background: #2d2d30;
+      color: #9cdcfe;
+      font-weight: bold;
+    }
+    tr:hover {
+      background: #333;
+    }
+    .error {
+      color: #f48771;
+    }
+  </style>
+</head>
+<body>
+  <h1>ChordPro Users Log</h1>
+  <div>
+    <button onclick="loadUsers()">Refresh</button>
+    <button onclick="autoRefresh()">Auto-refresh (5s)</button>
+    <button onclick="stopRefresh()">Stop Auto-refresh</button>
+  </div>
+  <div id="status">Loading...</div>
+  <div id="tableContainer">Fetching user data...</div>
+
+  <script>
+    let refreshInterval = null;
+
+    async function loadUsers() {
+      try {
+        const status = document.getElementById('status');
+        const container = document.getElementById('tableContainer');
+        status.textContent = 'Fetching...';
+        status.className = '';
+        container.innerHTML = '';
+
+        const response = await fetch('https://chordpro-viewer.onrender.com/users');
+        const data = await response.json();
+
+        status.textContent = `Total Users: ${data.count} | Last Updated: ${new Date().toLocaleTimeString()}`;
+
+        // Build table
+        if (!Array.isArray(data.users) || data.users.length === 0) {
+          container.textContent = 'No users found.';
+          return;
+        }
+
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        
+        // Create headers dynamically from object keys
+        Object.keys(data.users[0]).forEach(key => {
+          const th = document.createElement('th');
+          th.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+          headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        data.users.forEach(user => {
+          const tr = document.createElement('tr');
+          Object.values(user).forEach(val => {
+            const td = document.createElement('td');
+            td.textContent = val === null || val === undefined ? '' : val;
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+
+        container.appendChild(table);
+      } catch (error) {
+        document.getElementById('status').textContent = 'Error loading users';
+        document.getElementById('status').className = 'error';
+        document.getElementById('tableContainer').textContent = `Error: ${error.message}`;
+      }
+    }
+
+    function autoRefresh() {
+      if (refreshInterval) return;
+      loadUsers();
+      refreshInterval = setInterval(loadUsers, 5000);
+      document.getElementById('status').textContent += ' [Auto-refresh ON]';
+    }
+
+    function stopRefresh() {
+      if (refreshInterval) {
+        clearInterval(refreshInterval);
+        refreshInterval = null;
+        document.getElementById('status').textContent =
+          document.getElementById('status').textContent.replace(' [Auto-refresh ON]', '');
+      }
+    }
+
+    // Load users on page load
+    loadUsers();
+  </script>
+</body>
+</html>

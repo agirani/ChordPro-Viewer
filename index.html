@@ -13,11 +13,11 @@
       font-family: monospace;
       margin-top: 5px;
       column-gap: 10px;
-      overflow-y: auto;         /* allow vertical scroll only within this area */
+      overflow-y: auto;
       padding: 1rem;
       box-sizing: border-box;
       line-height: 1.5em;
-      scroll-behavior: smooth;  /* makes manual scrolling smooth too */
+      scroll-behavior: smooth;
     }
 
     /* Top control bar */
@@ -28,7 +28,7 @@
       flex-direction: row;
     }
 
-    /* Scroll control buttons (hidden in multi-column) */
+    /* Scroll control buttons */
     .scroll-buttons {
       display: flex;
       gap: 0.5rem;
@@ -57,7 +57,7 @@
     }
     .file-btn:hover { background: #0d47a1; }
 
-    /* Modal (server-side file browser) */
+    /* Modal (server-side file browser & login) */
     .modal {
       display: none;
       position: fixed;
@@ -122,7 +122,7 @@
 
     .title, .song-title {
       column-span: all;
-      font-size: 15px; /* Smaller heading */
+      font-size: 15px;
       font-weight: bold;
       margin-bottom: 5px;
       text-align: center;
@@ -159,14 +159,58 @@
     .line:empty { margin-bottom: 20px; }
     br { line-height: 20em; }
     .blank-line { height: 40px; }
+
+    /* Login form styling */
+    #loginForm {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    #loginForm input {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    #loginForm button {
+      padding: 10px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #loginForm button:hover { background: #0d47a1; }
+    
+    #userInfo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+      padding: 5px 10px;
+      background: #e3f2fd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    #logoutBtn {
+      padding: 4px 8px;
+      background: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    #logoutBtn:hover { background: #d32f2f; }
   </style>
 
-  <!-- Keep your bundle reference as before (user-provided) -->
   <script src="bundle.js"></script>
 </head>
 
 <body>
-  <!-- ▣ Top control bar: file selector, transpose, font, columns, open-in-new-tab -->
+  <!-- ▣ Top control bar: file selector, transpose, font, columns, open-in-new-tab, user info -->
   <div id="container">
     <button class="file-btn" onclick="openFileBrowser()">Select File</button>
     <label>&nbsp;&nbsp;Transpose&nbsp;&nbsp;</label>
@@ -182,9 +226,15 @@
 
     <label>&nbsp;&nbsp;&nbsp;</label>
     <button onclick="renderToNewTab()">Open in New Tab</button>
+
+    <!-- User info display -->
+    <div id="userInfo" style="display: none;">
+      <span>👤 <strong id="usernameDisplay"></strong></span>
+      <button id="logoutBtn" onclick="logout()">Logout</button>
+    </div>
   </div>
 
-  <!-- ▣ Scroll controls (visible only in single-column mode) -->
+  <!-- ▣ Scroll controls -->
   <div class="scroll-buttons" id="scrollControls" style="display:none;">
     <label>Scrolling controls</label>
     <button onclick="startAutoScroll(5)">5 sec/line (slow)</button>
@@ -193,7 +243,7 @@
     <button onclick="stopAutoScroll()">Stop</button>
   </div>
 
-  <!-- ▣ Main rendered output area (ChordPro -> HTML) -->
+  <!-- ▣ Main rendered output area -->
   <div id="output"></div>
 
   <!-- ▣ Modal for server-side file browser -->
@@ -206,16 +256,135 @@
     </div>
   </div>
 
-  <!-- ▣ Script: application logic (concise section comments only) -->
+  <!-- ▣ Modal for login -->
+  <div id="loginModal" class="modal" style="display: block;">
+    <div class="modal-content">
+      <h3>Welcome to ChordPro Viewer</h3>
+      <p>Please enter your name to continue: (this lets me know folks are using the tool)</p>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <input type="text" id="usernameInput" placeholder="Username" required minlength="2" maxlength="30" autocomplete="username">
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ▣ Script: application logic -->
   <script>
     // -----------------------------
     // ▣ State variables
     // -----------------------------
-    let chordProText = "";   // raw loaded ChordPro text
-    let file = "";           // current file metadata (name)
-    let colcount = 1;        // number of columns for output
-    let fontsize = 12;       // font size (px)
-    let currentPath = "";    // server path from file browser
+    let chordProText = "";
+    let file = "";
+    let colcount = 1;
+    let fontsize = 12;
+    let currentPath = "";
+    let currentUsername = null;
+
+    // -----------------------------
+    // ▣ Cookie helper functions
+    // -----------------------------
+    function setCookie(name, value, days) {
+      const expires = new Date();
+      expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Strict`;
+    }
+
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    function deleteCookie(name) {
+      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+    }
+
+    // -----------------------------
+    // ▣ Login/Logout functions
+    // -----------------------------
+    async function handleLogin(event) {
+      event.preventDefault();
+      const username = document.getElementById("usernameInput").value.trim();
+      
+      if (!username) return;
+
+      try {
+        // Register/login user with server
+        const response = await fetch("https://chordpro-viewer.onrender.com/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username })
+        });
+
+        const data = await response.json();
+        
+        if (data.success) {
+          currentUsername = username;
+          // Save to both cookie (30 days) and localStorage as backup
+          setCookie("chordpro_username", username, 30);
+          localStorage.setItem("chordpro_username", username);
+          document.getElementById("loginModal").style.display = "none";
+          document.getElementById("usernameDisplay").textContent = username;
+          document.getElementById("userInfo").style.display = "flex";
+        } else {
+          alert("Login failed: " + (data.error || "Unknown error"));
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+        alert("Unable to connect to server. Please try again.");
+      }
+    }
+
+    function logout() {
+      currentUsername = null;
+      // Clear both cookie and localStorage
+      deleteCookie("chordpro_username");
+      localStorage.removeItem("chordpro_username");
+      document.getElementById("userInfo").style.display = "none";
+      document.getElementById("loginModal").style.display = "block";
+      document.getElementById("usernameInput").value = "";
+    }
+
+    // Check for saved username on page load (cookie takes priority)
+    window.addEventListener("DOMContentLoaded", async () => {
+      // Check cookie first, then localStorage as fallback
+      const savedUsername = getCookie("chordpro_username") || localStorage.getItem("chordpro_username");
+      
+      if (savedUsername) {
+        try {
+          // Verify username still exists on server
+          const response = await fetch("https://chordpro-viewer.onrender.com/verify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: savedUsername })
+          });
+
+          const data = await response.json();
+          
+          if (data.valid) {
+            currentUsername = savedUsername;
+            // Update both storage methods
+            setCookie("chordpro_username", savedUsername, 30);
+            localStorage.setItem("chordpro_username", savedUsername);
+            document.getElementById("loginModal").style.display = "none";
+            document.getElementById("usernameDisplay").textContent = savedUsername;
+            document.getElementById("userInfo").style.display = "flex";
+          } else {
+            // Username no longer valid, clear both
+            deleteCookie("chordpro_username");
+            localStorage.removeItem("chordpro_username");
+          }
+        } catch (error) {
+          console.error("Verification error:", error);
+          // Keep login modal visible if can't verify
+        }
+      }
+    });
 
     // -----------------------------
     // ▣ DOM references and controls
@@ -225,7 +394,6 @@
     const valueDisplay = document.getElementById("transposeValue");
     const output = document.getElementById("output");
 
-    // Update font size live from slider
     fontSlider.addEventListener("input", () => {
       fontsize = fontSlider.value;
       document.getElementById("output").style.fontSize = fontsize + "px";
@@ -240,7 +408,6 @@
       const scrollButtons = document.getElementById("scrollControls");
 
       if (colcount === 1) {
-        // single-column: enable vertical scrolling and show controls
         output.style.removeProperty("column-count");
         output.style.removeProperty("column-gap");
         output.style.whiteSpace = "normal";
@@ -248,7 +415,6 @@
         output.style.height = "90vh";
         scrollButtons.style.display = "block";
       } else {
-        // multi-column: enable column layout and hide scroll controls
         output.style.columnCount = colcount;
         output.style.columnGap = "2rem";
         output.style.whiteSpace = "normal";
@@ -256,7 +422,7 @@
         output.style.overflowX = "hidden";
         scrollButtons.style.display = "none";
         stopAutoScroll();
-        output.scrollTop = 0; // reset position
+        output.scrollTop = 0;
       }
     });
 
@@ -269,21 +435,18 @@
     });
 
     // -----------------------------
-    // ▣ Auto-scroll logic (main window)
+    // ▣ Auto-scroll logic
     // -----------------------------
     let scrollTimer = null;
     let isScrolling = false;
 
     function startAutoScroll(secondsPerLine) {
-      // stop any existing scroll then start new one
       stopAutoScroll();
-
-      const lineHeight = fontsize; // px per line (approx)
+      const lineHeight = fontsize;
       const interval = secondsPerLine * 1000;
       if (isScrolling) return;
       isScrolling = true;
       scrollTimer = setInterval(() => {
-        // stop when bottom reached
         if (output.scrollTop + output.clientHeight >= output.scrollHeight) {
           stopAutoScroll();
           return;
@@ -301,19 +464,17 @@
     }
 
     // -----------------------------
-    // ▣ Render function: parse & format ChordPro into HTML
+    // ▣ Render function
     // -----------------------------
     async function render() {
       try {
         const delta = slider.value;
-        // Use ChordSheetJS to parse and format
         const parser = new ChordSheetJS.ChordProParser();
         let song = parser.parse(chordProText);
         if (delta != 0) song = song.transpose(delta);
         const formatter = new ChordSheetJS.HtmlTableFormatter();
         document.getElementById("output").innerHTML = formatter.format(song);
       } catch (err) {
-        // display parsing error with safe HTML encoding
         console.error("ChordPro render error:", err);
         const outputElem = document.getElementById("output");
         outputElem.innerHTML = `
@@ -334,7 +495,6 @@
         `;
       }
 
-      // Ensure scroll control visibility matches column mode
       const scrollButtons = document.getElementById("scrollControls");
       if (colcount === 1) {
         scrollButtons.style.display = "block";
@@ -345,10 +505,9 @@
     }
 
     // -----------------------------
-    // ▣ Server file browser: load file list & file content
+    // ▣ Server file browser
     // -----------------------------
     async function loadDirectory(path = "") {
-      // fetch list from backend (ensure CORS/backend availability)
       const res = await fetch(`https://chordpro-viewer.onrender.com/files`);
       const data = await res.json();
       const fileList = document.getElementById("fileList");
@@ -377,7 +536,6 @@
     }
 
     async function loadFile(path) {
-      // fetch individual file content and trigger render
       const res = await fetch(`https://chordpro-viewer.onrender.com/file?path=${encodeURIComponent(path)}`);
       chordProText = await res.text();
       file = { name: path };
@@ -386,7 +544,7 @@
     }
 
     // -----------------------------
-    // ▣ Utility: Filter file list, open/close modal
+    // ▣ Utility functions
     // -----------------------------
     function filterList() {
       const query = document.getElementById("searchBox").value.toLowerCase();
@@ -397,7 +555,7 @@
 
     function openFileBrowser() {
       if (document.getElementById("searchBox"))
-        document.getElementById("searchBox").value = ""; // Clear any previous search
+        document.getElementById("searchBox").value = "";
       document.getElementById("fileModal").style.display = "block";
       loadDirectory();
     }
@@ -407,12 +565,10 @@
     }
 
     // -----------------------------
-    // ▣ New-tab rendering (fixed)
-    // Build the new tab's DOM programmatically (no document.write),
-    // attach scroll buttons and behavior so it behaves exactly like the main window.
+    // ▣ New-tab rendering
     // -----------------------------
     function renderToNewTab() {
-      if (!file || !chordProText) return; // guard
+      if (!file || !chordProText) return;
       const delta = slider.value;
       const parser = new ChordSheetJS.ChordProParser();
       let song = parser.parse(chordProText);
@@ -420,33 +576,28 @@
       const formatter = new ChordSheetJS.HtmlTableFormatter();
       const rendered = formatter.format(song);
 
-      // open a blank new window and safely construct its DOM
       const newWin = window.open("", "_blank");
       const doc = newWin.document;
       doc.title = file.name;
 
-      // ----- head/styles -----
       const style = doc.createElement("style");
       style.textContent = `
         body { font-family: monospace; padding: 10px; background: #f9f9f9; font-size: ${fontsize}px; }
         .scroll-buttons { display: flex; gap: 0.5rem; margin-bottom: 10px; }
         .scroll-buttons button { padding: 0.5rem 1rem; border: none; background: #007aff; color: white; border-radius: 6px; cursor: pointer; }
         .scroll-buttons button:hover { background: #005ecb; }
-        #output {
-            ${colcount > 1 ? `column-count: ${colcount}; column-gap: 2rem;` : ''}
-            column-gap: 2rem; 
-            overflow-y: auto; 
-            height: 90vh; 
-            padding: 1rem; 
-            scroll-behavior: smooth; 
+        #output { 
+          ${colcount > 1 ? `column-count: ${colcount}; column-gap: 2rem;` : ''}
+          overflow-y: auto; 
+          height: 90vh; 
+          padding: 1rem; 
+          scroll-behavior: smooth; 
         }
       `;
       doc.head.appendChild(style);
 
-      // ----- scroll control buttons -----
       const scrollDiv = doc.createElement("div");
       scrollDiv.className = "scroll-buttons";
-      // create 3 speed buttons + stop
       const btnSlow = doc.createElement("button"); btnSlow.textContent = "5 sec/line (slow)";
       const btnMed  = doc.createElement("button"); btnMed.textContent = "2 sec/line (medium)";
       const btnFast = doc.createElement("button"); btnFast.textContent = "1 sec/line (fast)";
@@ -456,26 +607,21 @@
       scrollDiv.appendChild(btnFast);
       scrollDiv.appendChild(btnStop);
 
-      // hide the scroll controls if multi-column in new tab
       if (colcount !== 1) scrollDiv.style.display = "none";
 
       doc.body.appendChild(scrollDiv);
 
-      // ----- content/output -----
       const outputDiv = doc.createElement("div");
       outputDiv.id = "output";
       outputDiv.innerHTML = rendered;
       doc.body.appendChild(outputDiv);
 
-      // ----- scrolling logic in new tab (mirrors main window logic) -----
-      // local timers/flags so new tab is independent
       let newScrollTimer = null;
       let newIsScrolling = false;
 
       function newStartAutoScroll(secondsPerLine) {
-        // same behavior as main window: stop existing then start
         newStopAutoScroll();
-        const lineHeight = fontsize; // mirror main window's unit
+        const lineHeight = fontsize;
         const interval = secondsPerLine * 1000;
         if (newIsScrolling) return;
         newIsScrolling = true;
@@ -496,28 +642,19 @@
         newIsScrolling = false;
       }
 
-      // ----- wire up buttons after functions exist (reliable) -----
       btnSlow.addEventListener("click", () => newStartAutoScroll(5));
       btnMed.addEventListener("click",  () => newStartAutoScroll(2));
       btnFast.addEventListener("click", () => newStartAutoScroll(1));
       btnStop.addEventListener("click",  newStopAutoScroll);
 
-      // optional: expose simple helpers for console debugging in new tab
-      // (so you can call newWin.newStartAutoScroll(2) from devtools if desired)
       try {
         newWin.newStartAutoScroll = newStartAutoScroll;
         newWin.newStopAutoScroll = newStopAutoScroll;
-      } catch (e) {
-        // ignore cross-origin or other assignment errors
-      }
+      } catch (e) {}
 
-      // Finally, focus the new window
       newWin.focus();
     }
 
-    // -----------------------------
-    // ▣ Click outside modal to close
-    // -----------------------------
     window.addEventListener("click", (e) => {
       const modal = document.getElementById("fileModal");
       if (e.target == modal) closeModal();
