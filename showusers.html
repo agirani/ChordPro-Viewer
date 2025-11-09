@@ -108,11 +108,35 @@
         const tbody = document.createElement('tbody');
         data.users.forEach(user => {
           const tr = document.createElement('tr');
-          Object.values(user).forEach(val => {
+          Object.entries(user).forEach(([key, val]) => {
             const td = document.createElement('td');
-            td.textContent = val === null || val === undefined ? '' : val;
+
+            if (val === null || val === undefined) {
+              td.textContent = '';
+            } else if (
+              // Detect likely timestamp fields
+              key.toLowerCase().includes('login') ||
+              key.toLowerCase().includes('created')
+            ) {
+              try {
+                const date = new Date(val);
+                if (!isNaN(date.getTime())) {
+                  // Convert to local and include readable format
+                  td.textContent = date.toLocaleString();
+                } else {
+                  td.textContent = val;
+                }
+              } catch {
+                td.textContent = val;
+              }
+            } else {
+              td.textContent = val;
+            }
+
             tr.appendChild(td);
           });
+
+ 
           tbody.appendChild(tr);
         });
         table.appendChild(tbody);
