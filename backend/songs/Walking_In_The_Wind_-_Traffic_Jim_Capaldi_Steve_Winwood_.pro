@@ -14,7 +14,7 @@ Then you would know what it is I am getting [A]at
 But there again your head's got nothing [D]in it
 By the way you left without your [A]hat
 
-Bm]I'm walking in the wind [E]looking at the sky 
+[Bm]I'm walking in the wind [E]looking at the sky 
 [Bm]Hanging on a breeze and wondering [F]why, wh[A]y
 
  [A] [D]

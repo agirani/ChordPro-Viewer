@@ -1,5 +1,6 @@
 {title: Take It Easy}
 {subtitle: Jackson Browne and Glenn Frey}
+{c:capo 5 makes this in C}
 [G] [G/Am] [G/D7]
 
 Well, I'm a [G]runnin' down the road tryin to loosen my load

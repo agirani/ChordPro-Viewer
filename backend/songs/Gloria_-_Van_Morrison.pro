@@ -1,0 +1,67 @@
+{title: Gloria}
+{subtitle: Van Morrison}
+
+ [E] [D] [A]
+{c:x4}
+
+[E]I will tell you a[D]bout [A]my baby,[E]  [D]  [A]  
+[E]you know when she c[D]omes [A]around [E] [D] [A]
+[E]Around midnight[D], [A]  [E]head to the ground [D] [A]
+[E]Well she comes a[D]round [A]here,[E]  [D]  [A]  
+[E]at about midnight [D] [A]
+[E]Make me feel [D]so [A]good,[E]  [D]  [A]  
+[E]make me feel [D]alright [A]now [E] [D] [A]
+
+[E]And her [D]name [A]is
+[E]-G[D]- [A]
+[E]-L[D]- [A]
+[E]-O[D]- [A]
+[E]-R[D]- [A]
+[E]-I[D]- [A]
+[E]-A[D]- [A]
+[E]Gloria[D]  [A]  [E]Gloria[D]  [A]  [E]again
+[E]-G[D]- [A]
+[E]-L[D]- [A]
+[E]-O[D]- [A]
+[E]-R[D]- [A]
+[E]-I[D]- [A]
+[E]-A[D]- [A]
+[E]Gloria [D] [A] [E] [D] [A]
+
+[E]Want to shout it [D]at m[A]idnight,[E]  [D]  [A] 
+[E]want to shout it [D]every[A]day [E] [D] [A]
+[E]Coming round [D]her[A]e, [E]  [D]  [A]  
+[E]at about midnig[D]ht [A] [E] [D] [A]
+[E]Made me feel [D]so g[A]ood,[E]  [D]  [A]  
+[E]walking down t[D]hat s[A]treet [E] [D] [A]
+[E]When she come to [D]my h[A]ouse[E], [D]  [A] 
+[E]she knock on [D]my [A]door [E] [D] [A]
+[E]Knock on my door,[D]  [A]  
+[E]it's a boom boom [D]room r[A]ight [E] [D] [A]
+[E]In the midni[D]ght [A]hour,[E]  [D]  [A]  
+[E]in the midn[D]ight [A]hour [E] [D] [A]
+[E]Lord for the b[D]reak of [A]day,[E]  [D]  [A]  
+[E]in the midn[D]ight [A]hour [E] [D] [A]
+[E]Midnight [D]hou[A]r, [E]  [D]  [A]  
+[E]in the midnight[D], [A] [E] [D] [A]
+[E]Lord for the [D]break [A]of [E]dawn[D], [A] [E] [D] [A]
+[E]Make me feel [D]so g[A]ood,[E]  [D]  [A] 
+[E]make me feel [D]alri[A]ght [E] [D] [A]
+[E]Make me feel [D]so g[A]ood,[E]  [D]  [A]  
+[E]make me feel [D]alri[A]ght [E] [D] [A]
+[E]Make me feel [D]so g[A]ood,[E]  [D]  [A] 
+[E]make me feel [D]alri[A]ght [E] [D] [A]
+[E]Make me feel [D]so g[A]ood,[E]  [D]  [A] 
+[E]make me feel [D]alri[A]ght [E] [D] [A]
+
+[E]Give me a [D] [A]
+[E]-G[D]- [A]
+[E]-L[D]- [A]
+[E]-O[D]- [A]
+[E]-R[D]- [A]
+[E]-I[D]- [A]
+[E]-A[D]- [A]
+[E]Glori[D]a [A]  [E]Glori[D]a [A]  [E]Glori[D]a [A]  [E]Glori[D]a [A]
+
+[E]Make me feel [D]so g[A]ood[E], [D]  [A]  
+[E]make me feel [D]alri[A]ght ...fade out
