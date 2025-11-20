@@ -28,3 +28,7 @@ Oh the l[G]ast goodbye's the hardest one to s[C]ay,
 
 Oh the la[G]st goodbye's the hardest one to s[C]ay,
 [D]This is where the cowboy rides aw[G]ay.
+
+{tag: Country}
+{tag: 1980s}
+{tag: 4 Chord}

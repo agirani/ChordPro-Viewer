@@ -1,5 +1,6 @@
 {title: Walking In The Wind}
 {subtitle: Traffic (Jim Capaldi, Steve Winwood)}
+{Capo: 5}
 
  [A] [D]
 {c:2x *}

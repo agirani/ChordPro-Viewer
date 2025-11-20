@@ -40,3 +40,5 @@ There's still a lotta[Am7] love, h[D]ere in these troubled fi[G]elds [Am7] [Bm7]
 You'll be[G] the mule I'll be [Am7]the plow
 Come ha[Bm]rvest time we'll work it o[C]ut
 There's still a [Am7]lotta love, h[D]ere in these troubled fie[G]lds
+
+{tag: Country}
