@@ -1,7 +1,8 @@
 {title: The Battle of Antietam Creek}
+{subtitle: Warde H Ford 1939 as done by T Bone Burnett]
 
-'Twas on the field of Antietam where many's the soldier fell,
-Is where occurred the story which now to you I'll tell,
+[Bm]'Twas on the field of Antietam [Em]where many's the soldier [Bm]fell,
+Is [D]where occurred the story which now to you I'll tell,
 The dead lay all around me, we all together lay,
 For we had had a fearful fight upon the field that day.
 
@@ -20,7 +21,7 @@ So, I fixed a resolution not long with him to dwell,
 And with this resolution from him I ran away,
 I started then for New Orleans, and cursed be the day.
 
-"'Twas there I was conscripted and sent into the field,
+'Twas there I was conscripted and sent into the field,
 Not having any other hope but I must die or yield,
 And so with many another boy I marched away that night,
 And this has been the tenth time that I have been in a fight.
