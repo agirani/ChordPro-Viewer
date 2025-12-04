@@ -30,5 +30,11 @@ with sweet melis[E]sa... mmm... [F#m] [G#m] [F#m]
 [Cmaj7]But I know that he won't stay w[B]ithout melissa. [E] [F#m]
 [Cmaj7][F#m][B] [E] [F#m] [G#m]
 Yes I know that he won't stay without melissa
+
+[E] [F#m] [G#m] [F#m]
+[E] [F#m] [G#m] [F#m]
+[E] [F#m] [G#m] [F#m]
+[E] [F#m] [G#m] [F#m]
+
 {tag: Rock}
 {tag: 1970s}

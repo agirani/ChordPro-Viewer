@@ -23,22 +23,17 @@ look at Frosty [G]go.
 over the hills of snow. [C]
 
 [C]Frosty the Snowman, knew the [F]sun was hot that [C]day,
-        F                         CrundownAmAm7Am      G      G7sus4
-so he said, "Let's run, and we'll have some fun now, before I melt 
+so he [F]said, "Let's run, and we'll [F]have some [Am]fun [Am7]now, [Am]before I melt 
 aw[C]ay."
 
-
 [C]Down to the village, with a [F]broomstick in his [C]hand,
-        F                    Crundown Am
-Running here and there, all around the square,
+Running [F]here and there, all a[F]round the [Am]square,
 [Am7]sayi[Am]n', "C[G]atch me if you c[C]an."
 
-F                    Crundown   Am          F              C
-He led them down the streets of town, right to the traffic cop;
+He [F]led them down the [C]streets of [Am]town, right [F]to the [C]traffic cop;
 and [D7]only paused a moment, when he heard him holler, "[G]Stop!"
 For [C]Frosty, the Snowman, had to [F]hurry on his [C]way,
-       F                      CrundownAmAm7Am G
-But he waved goodbye, sayin' "Don't you cry, I'll be back again 
+But he [F]waved goodbye, sayin' "[C]Don't you [Am]cry, [Am7]I'll[Am] be back again 
 some [C]day." [F] [C]
 
 {tag: 1950s}
