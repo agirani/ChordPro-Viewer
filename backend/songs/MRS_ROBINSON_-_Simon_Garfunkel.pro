@@ -1,4 +1,4 @@
-{title: MRS. ROBINSON }
+{title: Mrs. Robinson}
 {subtitle: Simon & Garfunkel}
 {c:CAPO 2nd Fret}
 {sot}
